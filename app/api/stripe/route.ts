@@ -43,10 +43,10 @@ export async function GET() {
           price_data: {
             currency: "USD",
             product_data: {
-              name: "Genius Pro",
+              name: "PantheonAI Pro",
               description: "Unlimited AI Generations"
             },
-            unit_amount: 2000,    // $20.00
+            unit_amount: 1500,    // $15.00
             recurring: {
               interval: "month"
             }

@@ -18,9 +18,9 @@ export const LandingHero = () => {
             options={{
               strings: [
                 "Chatbot.",
-                " Image Generation.",
+                "Image Generation.",
                 "Code Generation.",
-                "Email Writing.",
+                "Text Writing and Polishing.",
               ],
               autoStart: true,
               loop: true,
