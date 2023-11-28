@@ -22,7 +22,7 @@ export const SubscriptionButton = ({
 
       window.location.href = response.data.url;
     } catch (error) {
-      toast.error("Something went wrong");
+      toast.error("Something Went Wrong");
     } finally {
       setLoading(false);
     }

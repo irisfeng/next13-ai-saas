@@ -18,9 +18,9 @@ export const LandingHero = () => {
             options={{
               strings: [
                 "Chatbot.",
-                "Photo Generation.",
-                "Blog Writing.",
-                "Mail Writing."
+                " Image Generation.",
+                "Code Generation.",
+                "Email Writing.",
               ],
               autoStart: true,
               loop: true,
@@ -29,7 +29,7 @@ export const LandingHero = () => {
         </div>
       </div>
       <div className="text-sm md:text-xl font-light text-zinc-400">
-        Create content using AI 10x faster.
+        Continuous Creativity, Rendered by AI. More functionality Coming soon... 
       </div>
       <div>
         <Link href={isSignedIn ? "/dashboard" : "/sign-up"}>

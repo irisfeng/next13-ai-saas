@@ -11,7 +11,7 @@ import './globals.css'
 const font = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'AI Assistant',
+  title: 'PantheonAI',
   description: 'AI SaaS Platform',
 }
 
