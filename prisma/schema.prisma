@@ -9,18 +9,28 @@ generator client {
 }
 
 model UserApiLimit {
-  id        String      @id @default(cuid())
+  id        String   @id @default(cuid())
   userId    String   @unique
   count     Int      @default(0)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
 
+// model UserSubscription {
+//   id        String      @id @default(cuid())
+//   userId    String   @unique
+//   stripeCustomerId       String?   @unique @map(name: "stripe_customer_id")
+//   stripeSubscriptionId   String?   @unique @map(name: "stripe_subscription_id")
+//   stripePriceId          String?   @map(name: "stripe_price_id")
+//   stripeCurrentPeriodEnd DateTime? @map(name: "stripe_current_period_end")
+// }
+
 model UserSubscription {
-  id        String      @id @default(cuid())
-  userId    String   @unique
-  stripeCustomerId       String?   @unique @map(name: "stripe_customer_id")
-  stripeSubscriptionId   String?   @unique @map(name: "stripe_subscription_id")
-  stripePriceId          String?   @map(name: "stripe_price_id")
-  stripeCurrentPeriodEnd DateTime? @map(name: "stripe_current_period_end")
+  id                     String    @id @default(cuid())
+  userId                 String    @unique
+  paypalCustomerId       String?   @unique @map(name: "customer_id")
+  paypalSubscriptionId   String?   @unique @map(name: "subscription_id")
+  paypalPlanId           String?   @unique @map(name: "plan_id")                                             // This is the Plan ID from PayPal
+  paypalCurrentPeriodEnd DateTime? @map(name: "current_period_end")
+  // ... other fields
 }
