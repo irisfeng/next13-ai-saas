@@ -32,10 +32,7 @@ export async function POST(req: Request) {
     } = await req.json();
 
     const myAssistant = await openai.beta.assistants.retrieve(assistantId);
-    console.log("Assistant Retrieved:", myAssistant);
   
-    
-
     // Create a thread if needed
     const threadId = input.threadId ?? (await openai.beta.threads.create({})).id;
     console.log("Thread ID:", threadId); // 添加日志

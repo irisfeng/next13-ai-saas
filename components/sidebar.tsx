@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Montserrat } from 'next/font/google'
-import { Calculator, Code, ImageIcon, LayoutDashboard, MessageSquare, MessageSquarePlus, Music, Settings, VideoIcon } from "lucide-react";
+import { BookMarked, Code, Heart, ImageIcon, LayoutDashboard, MessageSquare, MessageSquarePlus, Music, Settings, VideoIcon } from "lucide-react";
 import { usePathname } from "next/navigation";
 
 import { cn } from "@/lib/utils";
@@ -25,10 +25,10 @@ const routes = [
     color: "text-violet-500",
   },
   {
-    label: 'Math Tutor',
-    icon: Calculator,
+    label: 'Minimalist Translation',
+    icon: BookMarked,
     color: "text-green-700",
-    href: '/math',
+    href: '/translation',
   },
   {
     label: 'Image',

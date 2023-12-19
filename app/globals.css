@@ -72,6 +72,9 @@ body,
  
     --ring: 12 6.5% 15.1%;
   }
+  .white-icon {
+    color: white;
+}
 }
  
 @layer base {

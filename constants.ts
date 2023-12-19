@@ -1,4 +1,4 @@
-import { Calculator, Code, ImageIcon, MessageSquare, MessageSquarePlus, Music, VideoIcon } from "lucide-react";
+import { BookMarked, Calculator, Code, Heart, ImageIcon, MessageSquare, MessageSquarePlus, Music, VideoIcon } from "lucide-react";
 
 export const MAX_FREE_COUNTS = 10; 
 
@@ -11,11 +11,11 @@ export const tools = [
     bgColor: "bg-violet-500/10",
   },
   {
-    label: 'Math Tutor',
-    icon: Calculator,
+    label: 'Minimalist Translation',
+    icon: BookMarked,
     color: "text-green-700",
     bgColor: "bg-green-700/10",
-    href: '/math',
+    href: '/translation',
   },
   {
     label: 'Image',

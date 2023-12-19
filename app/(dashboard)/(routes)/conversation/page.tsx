@@ -4,7 +4,7 @@ import { useChat } from 'ai/react';
 import { Message } from 'ai';
 import ReactMarkdown from "react-markdown";
 import * as z from "zod";
-import { MessageSquare } from "lucide-react";
+import { MessageSquare, Send } from "lucide-react";
 import { useForm } from "react-hook-form";
 // import { useState } from "react";
 // import { toast } from "react-hot-toast";
@@ -72,7 +72,7 @@ export default function ConversationPage() {
             <Button  className="flex-shrink-0 bg-blue-500 hover:bg-blue-600 active:bg-blue-700 text-white rounded-lg p-2 px-6 transition duration-300 ease-in-out transform hover:scale-105 shadow-lg" 
                     type="submit" 
               size="icon">
-                Send
+                发 送
             </Button>
           </div>
         </form>

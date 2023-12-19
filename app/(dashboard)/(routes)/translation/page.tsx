@@ -2,8 +2,8 @@
 
 import { Message, experimental_useAssistant as useAssistant } from 'ai/react';
 import { useEffect, useRef } from 'react';
-import 'katex/dist/katex.min.css';
-import { Calculator } from "lucide-react";
+
+import { BookMarked, Calculator, Heart, Send } from "lucide-react";
 import { Heading } from "@/components/heading";
 import { Button } from "@/components/ui/button";
 import ReactMarkdown from "react-markdown";
@@ -14,12 +14,13 @@ import { cn } from "@/lib/utils";
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 import 'katex/dist/katex.min.css'; // 引入 KaTeX 样式
+import { Satisfy } from 'next/font/google';
 
 export default function mathAssistant() {
 
   const { status, messages, input, submitMessage, handleInputChange, error } =
     useAssistant({
-      api: '/api/math',
+      api: '/api/translation',
     });
 
     // When status changes to accepting messages, focus the input:
@@ -33,12 +34,12 @@ export default function mathAssistant() {
   return (
       <div className=" w-full max-w-3xl lg:max-w-5xl p-4 lg:p-24 flex flex-col items-center">
         <Heading 
-          title="Math Tutor"
-          description="Math Tutor & Assistant... "
-          icon={Calculator}
+          title="Minimalist Translation"
+          description="Especially for Engish and Chinese..."
+          icon={BookMarked}
           iconColor="text-green-700"
           bgColor="bg-green-700/10"
-          className="w-full text-left"
+          // className="w-full text-left"
         />
         
         <div className='flex flex-col gap-y-4 bg-white rounded-lg p-4 w-full lg:max-w-5xl overflow-auto'>
@@ -60,12 +61,12 @@ export default function mathAssistant() {
                 value={input}
                 disabled={status !== 'awaiting_message'}
                 onChange={handleInputChange}
-                placeholder="Come on baby.."
+                placeholder="空山新雨后,天气晚来秋..."
               />
               <Button  className="flex-shrink-0 bg-blue-500 hover:bg-blue-600 active:bg-blue-700 text-white rounded-lg p-2 px-6 transition duration-300 ease-in-out transform hover:scale-105 shadow-lg" 
                       type="submit" 
                 size="icon">
-                  Send
+                发 送
               </Button>
             </div>
           </form>
