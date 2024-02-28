@@ -1,36 +1,36 @@
-import { BookMarked, Calculator, Code, Heart, ImageIcon, MessageSquare, MessageSquarePlus, Music, VideoIcon } from "lucide-react";
+import { BookMarked, ImageIcon, MessageSquare, MessageSquarePlus, Pen } from "lucide-react";
 
-export const MAX_FREE_COUNTS = 10; 
+export const MAX_FREE_COUNTS = 5;
 
 export const tools = [
   {
-    label: 'Conversation',
+    label: '聊天对话',
     icon: MessageSquare,
     href: '/conversation',
     color: "text-violet-500",
     bgColor: "bg-violet-500/10",
   },
   {
-    label: 'Minimalist Translation',
+    label: '精简翻译',
     icon: BookMarked,
     color: "text-green-700",
     bgColor: "bg-green-700/10",
     href: '/translation',
   },
   {
-    label: 'Image',
+    label: '图片生成',
     icon: ImageIcon,
     color: "text-pink-700",
     bgColor: "bg-pink-700/10",
     href: '/image',
   },
-  // {
-  //   label: 'Video',
-  //   icon: VideoIcon,
-  //   color: "text-orange-700",
-  //   bgColor: "bg-orange-700/10",
-  //   href: '/video',
-  // },
+  {
+    label: '专业写作助手',
+    icon: Pen,
+    color: "text-orange-700",
+    bgColor: "bg-orange-700/10",
+    href: '/writing',
+  },
   // {
   //   label: 'Music',
   //   icon: Music,
@@ -39,10 +39,10 @@ export const tools = [
   //   bgColor: "bg-emerald-500/10",
   // },
   {
-    label: 'VoiceChat(developing...)',
+    label: '语音对话(开发中...)',
     icon: MessageSquarePlus,
     href: '/voicechat',
-    color: "text-orange-700",
-    bgColor: "bg-orange-700/10",
+    color: "text-emerald-500",
+    bgColor: "bg-emerald-500/10",
   },
 ];

@@ -12,15 +12,15 @@ export const LandingHero = () => {
   return (
     <div className="text-white font-bold py-36 text-center space-y-5">
       <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl space-y-5 font-extrabold">
-        <h1>The Best AI Tool for</h1>
+        <h1>强大的AI SaaS工具</h1>
         <div className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
           <TypewriterComponent
             options={{
               strings: [
-                "Chatbot.",
-                "Image Generation.",
-                "AI BFF.",
-                "Text Writing and Polishing.",
+                "聪明的对话机器人",
+                "按您的要求生成图片",
+                "信达雅的中英翻译",
+                "文字生成及润色",
               ],
               autoStart: true,
               loop: true,
@@ -29,17 +29,18 @@ export const LandingHero = () => {
         </div>
       </div>
       <div className="text-sm md:text-xl font-light text-zinc-400">
-        Continuous Creativity, Rendered by AI. More functionality Coming soon... 
+       更多好用功能持续开发中... 
       </div>
       <div>
         <Link href={isSignedIn ? "/dashboard" : "/sign-up"}>
           <Button variant="premium" className="md:text-lg p-4 md:p-6 rounded-full font-semibold">
-            Start Generating For Free
+            免费开始使用
           </Button>
         </Link>
       </div>
       <div className="text-zinc-400 text-xs md:text-sm font-normal">
         No credit card required.
+        {/* 无须信用卡，直接使用 */}
       </div>
     </div>
   );

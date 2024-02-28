@@ -1,64 +1,66 @@
 import { auth } from "@clerk/nextjs";
-import { NextResponse } from "next/server";
-import { Configuration, OpenAIApi } from "openai";
+// import { NextResponse } from "next/server";
+import OpenAI from "openai";
+import { OpenAIStream, StreamingTextResponse } from 'ai';
 
 import { checkSubscription } from "@/lib/subscription";
 import { incrementApiLimit, checkApiLimit } from "@/lib/api-limit";
 
-const configuration = new Configuration({
-  apiKey: process.env.OPENAI_API_KEY,
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY || '',
 });
 
-const openai = new OpenAIApi(configuration);
+// IMPORTANT! Set the runtime to edge
+export const runtime = 'edge';
 
-export async function POST(
-  req: Request
-) {
+export async function POST(req: Request) {
   try {
     const { userId } = auth();
     const body = await req.json();
-    const { prompt, amount = 1, resolution = "512x512" } = body;
+    const { prompt, amount = 1, resolution = "256x256" } = body;
 
     if (!userId) {
-      return new NextResponse("Unauthorized", { status: 401 });
+      return Response.json({error: "Unauthorized"}, { status: 401 });
     }
 
-    if (!configuration.apiKey) {
-      return new NextResponse("OpenAI API Key not configured.", { status: 500 });
+    if (!openai.apiKey) {
+      return Response.json({error: "OpenAI API Key not configured."}, { status: 500 });
     }
 
     if (!prompt) {
-      return new NextResponse("Prompt is required", { status: 400 });
+      return Response.json({error: "Prompt is required."}, { status: 400 });
     }
 
     if (!amount) {
-      return new NextResponse("Amount is required", { status: 400 });
+      return Response.json({error: "Amount is required"}, { status: 400 });
     }
 
     if (!resolution) {
-      return new NextResponse("Resolution is required", { status: 400 });
+      return Response.json({error: "Resolution is required"}, { status: 400 });
     }
 
-    const freeTrial = await checkApiLimit();
-    const isPro = await checkSubscription();
+    // const freeTrial = await checkApiLimit();
+    // const isPro = await checkSubscription();
 
-    if (!freeTrial && !isPro) {
-      return new NextResponse("Free trial has expired. Please upgrade to pro.", { status: 403 });
-    }
+    // if (!freeTrial && !isPro) {
+    //   return Response.json({error: "Free trial has expired. Please upgrade to pro."}, { status: 403 });
+    // }
 
-    const response = await openai.createImage({
+    const image = await openai.images.generate({
       prompt,
       n: parseInt(amount, 10),
       size: resolution,
     });
 
-    if (!isPro) {
-      await incrementApiLimit();
-    }
+    const image_url = image.data;
 
-    return NextResponse.json(response.data.data);
+    // if (!isPro) {
+    //   await incrementApiLimit();
+    // }
+
+    return Response.json(image.data);
   } catch (error) {
     console.log('[IMAGE_ERROR]', error);
-    return new NextResponse("Internal Error", { status: 500 });
+    return Response.json({error: "Internal Error"}, { status: 500 });
   }
 };

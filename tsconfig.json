@@ -23,6 +23,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/(dashboard)/(routes)/translation/page.tsx.bakl"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/(dashboard)/(routes)/translation/page.tsx.bak", "app/api/image/route.ts.bak"],
   "exclude": ["node_modules"]
 }

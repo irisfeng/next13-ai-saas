@@ -19,10 +19,18 @@ export async function POST(req: Request) {
   try {
     const { userId } = auth();
 
-    const assistantId = process.env.ASSISTANT_ID1 as string;
+    const assistantId = process.env.ASSISTANT_ID2 as string;
 
     if (!assistantId) {
       throw new Error("Assistant ID not found in environment variables");
+    }
+
+    if (!userId) {
+      return Response.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
+    if (!openai.apiKey) {
+      return Response.json({ error: "OpenAI API Key not configured." }, { status: 500 });
     }
 
     // Parse the request body
@@ -43,6 +51,13 @@ export async function POST(req: Request) {
       content: input.message,
     });
     console.log("Message Created:", createdMessage); // 添加日志
+
+    const freeTrial = await checkApiLimit();
+    // const isPro = await checkSubscription();
+
+    if (!freeTrial) {
+      return Response.json({ error: "Free trial has expired. Please upgrade to pro." }, { status: 403 });
+    }
 
     return experimental_AssistantResponse(
       { threadId, messageId: createdMessage.id },
@@ -93,6 +108,8 @@ export async function POST(req: Request) {
           })
         ).data;
         console.log("Response Messages:", responseMessages); // 添加日志
+
+        await incrementApiLimit();              // api limit increment
 
         // Send the messages
         for (const message of responseMessages) {

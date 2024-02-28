@@ -4,7 +4,7 @@ import OpenAI from "openai";
 import { OpenAIStream, StreamingTextResponse } from 'ai';
 // import { ChatCompletionMessage } from "openai/resources";
 
-import { checkSubscription } from "@/lib/subscription";
+// import { checkSubscription } from "@/lib/subscription";
 import { incrementApiLimit, checkApiLimit } from "@/lib/api-limit";
 
 // Create an OpenAI API client (that's edge friendly!)
@@ -13,7 +13,7 @@ const openai = new OpenAI({
 });
 
 // IMPORTANT! Set the runtime to edge
-export const runtime = 'edge';
+// export const runtime = 'edge';
 
 export async function POST(req: Request) {
   try {
@@ -34,19 +34,22 @@ export async function POST(req: Request) {
       return Response.json({error: "Messages are required"}, { status: 400 });
     }
 
-    // const freeTrial = await checkApiLimit();
+    const freeTrial = await checkApiLimit();
     // const isPro = await checkSubscription();
 
-    // if (!freeTrial && !isPro) {
-    //   return Response.json({error:"Free trial has expired. Please upgrade to pro."}, { status: 403 });
-    // }
+    if (!freeTrial) {
+      return Response.json({error:"Free trial has expired. Please upgrade to pro."}, { status: 403 });
+    }
+
     const response = await openai.chat.completions.create({
       model: "gpt-3.5-turbo-1106",  
       // model: "gpt-4-1106-preview",
       stream: true,
       messages : messages,
-      
+
     });
+
+    await incrementApiLimit();
 
     // if (!isPro) {
     //   await incrementApiLimit();
@@ -56,9 +59,12 @@ export async function POST(req: Request) {
     const stream = OpenAIStream(response);
     console.log(messages);
     return new StreamingTextResponse(stream);
-    
+
   } catch (error) {
     console.log('[CONVERSATION_ERROR]', error);
     return Response.json({error: "Internal Error"}, { status: 500 });
   }
 };
+
+
+

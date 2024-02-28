@@ -12,7 +12,7 @@ const font = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'PantheonAI',
-  description: 'AI SaaS Platform',
+  description: '好用的AI SaaS工具',
 }
 
 export default async function RootLayout({
@@ -23,7 +23,7 @@ export default async function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
-        <CrispProvider />
+        {/* <CrispProvider /> */}
         <body className={font.className}>
           <ToasterProvider />
           <ModalProvider />

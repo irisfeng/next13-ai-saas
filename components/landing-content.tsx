@@ -4,35 +4,35 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const testimonials = [
   {
-    name: "Joel",
+    name: "宋江",
     avatar: "J",
-    title: "Software Engineer",
-    description: "This is the best application I've ever used!",
+    title: "软件开发工程师",
+    description: "打开网页就能用，太棒了！😁",
   },
   {
-    name: "Antonio",
+    name: "安东尼",
     avatar: "A",
-    title: "Designer",
-    description: "I use this daily for generating new photos!",
+    title: "设计师",
+    description: "我每天用它生成图片，墙裂推荐！👍",
   },
   {
-    name: "Mark",
+    name: "小马扎",
     avatar: "M",
     title: "CEO",
-    description: "This app has changed my life, cannot imagine working without it!",
+    description: "每天都用它，很难想象哪天用不了它了🤞",
   },
   {
-    name: "Mary",
+    name: "玛丽",
     avatar: "M",
     title: "CFO",
-    description: "The best in class, definitely worth the premium subscription!",
+    description: "高级订阅超值的，你值得拥有！太棒了💖",
   },
 ];
 
 export const LandingContent = () => {
   return (
     <div className="px-10 pb-20">
-      <h2 className="text-center text-4xl text-white font-extrabold mb-10">Testimonials</h2>
+      <h2 className="text-center text-4xl text-white font-extrabold mb-10">评价及反馈</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {testimonials.map((item) => (
           <Card key={item.description} className="bg-[#192339] border-none text-white">

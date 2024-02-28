@@ -3,7 +3,7 @@
 import { Message, experimental_useAssistant as useAssistant } from 'ai/react';
 import { useEffect, useRef } from 'react';
 
-import { BookMarked, Calculator, Heart, Send } from "lucide-react";
+import { BookMarked, Calculator, Heart, Send, Pen } from "lucide-react";
 import { Heading } from "@/components/heading";
 import { Button } from "@/components/ui/button";
 import ReactMarkdown from "react-markdown";
@@ -14,11 +14,11 @@ import { Empty } from "@/components/ui/empty";
 import 'katex/dist/katex.min.css'; // 引入 KaTeX 样式
 
 
-const someAssistant = () => {
+const writingAssistant = () => {
 
   const { status, messages, input, submitMessage, handleInputChange, error } =
     useAssistant({
-      api: '/api/translation',
+      api: '/api/writing',
     });
 
     // When status changes to accepting messages, focus the input:
@@ -32,11 +32,11 @@ const someAssistant = () => {
   return (
       <div className=" w-full max-w-3xl lg:max-w-5xl p-4 lg:p-24 flex flex-col">
         <Heading 
-          title="精简翻译"
-          description="直接中英翻译，标准：信达雅"
-          icon={BookMarked}
-          iconColor="text-green-700"
-          bgColor="bg-green-700/10"
+          title="专业写作助手"
+          description="以专业标准辅助您进行文章、博文、推文等的创作与润色"
+          icon={Pen}
+          iconColor="text-orange-700"
+          bgColor="bg-orange-700/10"
         />
 
         <div className='flex flex-col gap-y-4 bg-white rounded-lg p-4 w-full lg:max-w-5xl overflow-auto'>
@@ -60,7 +60,7 @@ const someAssistant = () => {
                     value={input}
                     disabled={status !== 'awaiting_message'}
                     onChange={handleInputChange}
-                    placeholder="直接输入需要翻译的内容..."
+                    placeholder="想创作什么，请让我帮助您一起完成..."
                   />
                   <Button  
                   // className="col-span-12 lg:col-span-2" 
@@ -91,4 +91,4 @@ function ChatMessage({message: {role, content}}: {message: Message}) {
   );
 }
 
-export default someAssistant;
+export default writingAssistant;

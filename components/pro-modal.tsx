@@ -43,7 +43,7 @@ export const ProModal = () => {
         <DialogHeader>
           <DialogTitle className="flex justify-center items-center flex-col gap-y-4 pb-2">
             <div className="flex items-center gap-x-2 font-bold text-xl">
-              Upgrade to PantheonAI
+              升级至PantheonAI
               <Badge variant="premium" className="uppercase text-sm py-1">
                 pro
               </Badge>
@@ -67,7 +67,7 @@ export const ProModal = () => {
         </DialogHeader>
         <DialogFooter>
           <Button disabled={loading} onClick={onSubscribe} size="lg" variant="premium" className="w-full">
-            Upgrade
+            升 级
             <Zap className="w-4 h-4 ml-2 fill-white" />
           </Button>
         </DialogFooter>

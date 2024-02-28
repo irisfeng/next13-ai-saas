@@ -36,12 +36,12 @@ export const FreeCounter = ({
         <CardContent className="py-6">
           <div className="text-center text-sm text-white mb-4 space-y-2">
             <p>
-              {apiLimitCount} / {MAX_FREE_COUNTS} Free Usages
+              {apiLimitCount} / {MAX_FREE_COUNTS} 免费次数
             </p>
             <Progress className="h-3" value={(apiLimitCount / MAX_FREE_COUNTS) * 100} />
           </div>
           <Button onClick={proModal.onOpen} variant="premium" className="w-full">
-            Upgrade
+            升 级
             <Zap className="w-4 h-4 ml-2 fill-white" />
           </Button>
         </CardContent>

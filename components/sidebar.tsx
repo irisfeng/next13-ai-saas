@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Montserrat } from 'next/font/google'
-import { BookMarked, Code, Heart, ImageIcon, LayoutDashboard, MessageSquare, MessageSquarePlus, Music, Settings, VideoIcon } from "lucide-react";
+import { BookMarked, Code, Heart, ImageIcon, LayoutDashboard, MessageSquare, MessageSquarePlus, Music, Settings, VideoIcon, Wand, Pen } from "lucide-react";
 import { usePathname } from "next/navigation";
 
 import { cn } from "@/lib/utils";
@@ -13,49 +13,37 @@ const poppins = Montserrat ({ weight: '600', subsets: ['latin'] });
 
 const routes = [
   {
-    label: 'Dashboard',
+    label: '控制面板',
     icon: LayoutDashboard,
     href: '/dashboard',
-    color: "text-sky-500"
+    color: "text-sky-500",
   },
   {
-    label: 'Conversation',
+    label: '聊天对话',
     icon: MessageSquare,
     href: '/conversation',
     color: "text-violet-500",
   },
   {
-    label: 'Minimalist Translation',
+    label: '精简翻译',
     icon: BookMarked,
     color: "text-green-700",
     href: '/translation',
   },
   {
-    label: 'Image',
+    label: '图片生成',
     icon: ImageIcon,
     color: "text-pink-700",
     href: '/image',
   },
   {
-    label: 'VioceChat(Developing...)',
-    icon: MessageSquarePlus,
-    color: "text-orange-500",
-    href: '/voicechat',
+    label: '专业写作助手',
+    icon: Pen,
+    color: "text-orange-700",
+    href: '/writing',
   },
-  // {
-  //   label: 'Video',
-  //   icon: VideoIcon,
-  //   color: "text-orange-700",
-  //   href: '/video',
-  // },
-  // {
-  //   label: 'Music',
-  //   icon: Music,
-  //   color: "text-emerald-500",
-  //   href: '/music',
-  // },
   {
-    label: 'Settings',
+    label: '设置',
     icon: Settings,
     href: '/settings',
   },

@@ -5,26 +5,29 @@ import { Message } from 'ai';
 import ReactMarkdown from "react-markdown";
 import * as z from "zod";
 import { MessageSquare, Send } from "lucide-react";
-import { useForm } from "react-hook-form";
+// import { useForm } from "react-hook-form";
 // import { useState } from "react";
-// import { toast } from "react-hot-toast";
 
 import { BotAvatar } from "@/components/bot-avatar";
 import { Heading } from "@/components/heading";
 import { Button } from "@/components/ui/button";
 // import { Input } from "@/components/ui/input";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
+// import { zodResolver } from "@hookform/resolvers/zod";
+// import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { cn } from "@/lib/utils";
 import { UserAvatar } from "@/components/user-avatar";
 // import { Empty } from "@/components/ui/empty";
 import { useProModal } from "@/hooks/use-pro-modal";
+// import { Empty } from '@/components/ui/empty';
+// import { useRouter } from 'next/router';
+// import toast from 'react-hot-toast';
 
 // import { formSchema } from "./constants";
 
 export default function ConversationPage() {
   
-  const proModal = useProModal();
+  // const router = useRouter();
+  // const proModal = useProModal();
 
   const { 
     messages, 
@@ -37,20 +40,25 @@ export default function ConversationPage() {
     } = useChat({
       api: '/api/conversation',
     });
-
+  
+  const onSubmit = async() => {
+    
+  }
+    
   return (
     
-    <div className=" w-full max-w-3xl lg:max-w-5xl p-4 lg:p-24 flex flex-col items-center">
+    <div className=" w-full max-w-3xl lg:max-w-5xl p-4 lg:p-24 flex flex-col">
       <Heading 
-        title="Conversation"
-        description="Our most advanced conversation model."
+        title="聊天对话"
+        description="遥遥领先的OpenAI大模型"
         icon={MessageSquare}
         iconColor="text-violet-500"
         bgColor="bg-violet-500/10"
-        className="w-full text-left"
+        // className="w-full text-left"
       />
       
       <div className='flex flex-col gap-y-4 bg-white rounded-lg p-4 w-full lg:max-w-5xl overflow-auto'>
+        
         {messages.length > 0 ?
           messages.map(m => (
             <ChatMessage message={m} key={m.id} />
@@ -64,16 +72,16 @@ export default function ConversationPage() {
               className="flex-grow mr-4 p-2 rounded-lg border-2 border-gray-300"
               value={input}
               onChange={handleInputChange}
-              placeholder="说些什么吧..."
+              placeholder="老铁，今天想聊些啥"
             />
-            {/* <Button className="flex-shrink-0 text-white rounded-lg p-2" type="submit" size="icon">
-              Send
-            </Button> */}
-            <Button  className="flex-shrink-0 bg-blue-500 hover:bg-blue-600 active:bg-blue-700 text-white rounded-lg p-2 px-6 transition duration-300 ease-in-out transform hover:scale-105 shadow-lg" 
+            <Button className="flex-shrink-0 text-white rounded-lg p-2" type="submit" size="icon">
+              <Send />
+            </Button>
+            {/* <Button  className="flex-shrink-0 bg-blue-500 hover:bg-blue-600 active:bg-blue-700 text-white rounded-lg p-2 px-6 transition duration-300 ease-in-out transform hover:scale-105 shadow-lg" 
                     type="submit" 
               size="icon">
-                发 送
-            </Button>
+                <Send />
+            </Button> */}
           </div>
         </form>
       </div>
@@ -89,7 +97,7 @@ function ChatMessage({message: {role, content}}: {message: Message}) {
       {role === 'user' ? <UserAvatar /> : <BotAvatar />}
       <p className='text-sm'>
         <ReactMarkdown>
-            {content}
+          {content}
         </ReactMarkdown>
       </p>
     </div>

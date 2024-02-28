@@ -5,7 +5,7 @@ import axios from "axios";
 import Image from "next/image";
 import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Download, ImageIcon } from "lucide-react";
+import { Download, ImageIcon, Send } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { useRouter } from "next/navigation";
@@ -32,7 +32,7 @@ const PhotoPage = () => {
     defaultValues: {
       prompt: "",
       amount: "1",
-      resolution: "512x512"
+      resolution: "256x256"
     }
   });
 
@@ -51,7 +51,7 @@ const PhotoPage = () => {
       if (error?.response?.status === 403) {
         proModal.onOpen();
       } else {
-        toast.error("Something went wrong.");
+        toast.error("Something went wrong...");
       }
     } finally {
       router.refresh();
@@ -61,8 +61,8 @@ const PhotoPage = () => {
   return ( 
     <div>
       <Heading
-        title="Image Generation"
-        description="Turn your prompt into an image."
+        title="图片生成"
+        description="按照您的描述生成图片..."
         icon={ImageIcon}
         iconColor="text-pink-700"
         bgColor="bg-pink-700/10"
@@ -92,7 +92,7 @@ const PhotoPage = () => {
                     <Input
                       className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
                       disabled={isLoading} 
-                      placeholder="A picture of a horse in Swiss alps" 
+                      placeholder="黄浦江畔美丽的东方明珠" 
                       {...field}
                     />
                   </FormControl>
@@ -159,8 +159,8 @@ const PhotoPage = () => {
                 </FormItem>
               )}
             />
-            <Button className="col-span-12 lg:col-span-2 w-full" type="submit" disabled={isLoading} size="icon">
-              Generate
+            <Button className="flex-shrink-0 text-white rounded-lg p-2" type="submit" disabled={isLoading} size="icon">
+              <Send />
             </Button>
           </form>
         </Form>
@@ -170,7 +170,7 @@ const PhotoPage = () => {
           </div>
         )}
         {photos.length === 0 && !isLoading && (
-          <Empty label="No images generated." />
+          <Empty label="空空如也..." />
         )}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-8">
           {photos.map((src) => (
@@ -185,7 +185,7 @@ const PhotoPage = () => {
               <CardFooter className="p-2">
                 <Button onClick={() => window.open(src)} variant="secondary" className="w-full">
                   <Download className="h-4 w-4 mr-2" />
-                  Download
+                  下 载
                 </Button>
               </CardFooter>
             </Card>
