@@ -1,6 +1,6 @@
 import { BookMarked, ImageIcon, MessageSquare, MessageSquarePlus, Pen } from "lucide-react";
 
-export const MAX_FREE_COUNTS = 5;
+export const MAX_FREE_COUNTS = 10;
 
 export const tools = [
   {
@@ -11,7 +11,7 @@ export const tools = [
     bgColor: "bg-violet-500/10",
   },
   {
-    label: '精简翻译',
+    label: '精简互译',
     icon: BookMarked,
     color: "text-green-700",
     bgColor: "bg-green-700/10",
@@ -25,7 +25,7 @@ export const tools = [
     href: '/image',
   },
   {
-    label: '专业写作助手',
+    label: '写作助手',
     icon: Pen,
     color: "text-orange-700",
     bgColor: "bg-orange-700/10",
@@ -38,11 +38,11 @@ export const tools = [
   //   color: "text-emerald-500",
   //   bgColor: "bg-emerald-500/10",
   // },
-  {
-    label: '语音对话(开发中...)',
-    icon: MessageSquarePlus,
-    href: '/voicechat',
-    color: "text-emerald-500",
-    bgColor: "bg-emerald-500/10",
-  },
+  // {
+  //   label: '语音对话(开发中...)',
+  //   icon: MessageSquarePlus,
+  //   href: '/voicechat',
+  //   color: "text-emerald-500",
+  //   bgColor: "bg-emerald-500/10",
+  // },
 ];

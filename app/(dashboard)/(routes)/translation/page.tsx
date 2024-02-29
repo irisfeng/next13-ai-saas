@@ -32,7 +32,7 @@ const someAssistant = () => {
   return (
       <div className=" w-full max-w-3xl lg:max-w-5xl p-4 lg:p-24 flex flex-col">
         <Heading 
-          title="精简翻译"
+          title="精简互译"
           description="直接中英翻译，标准：信达雅"
           icon={BookMarked}
           iconColor="text-green-700"

@@ -16,10 +16,10 @@ export default function HomePage() {
       <div className="mb-8 space-y-4">
         <h2 className="text-2xl md:text-4xl font-bold text-center">
           {/* Explore the power of AI */}
-          体验AI的力量，快试试吧
+          AI让生活更有趣，学习工作更高效
         </h2>
         <p className="text-muted-foreground font-light text-sm md:text-lg text-center">
-          与聪明的AI对话 - 体验AI的智能
+          与AI交互 - 体验AI的智能
         </p>
       </div>
       <div className="px-4 md:px-20 lg:px-32 space-y-4">

@@ -32,7 +32,7 @@ const writingAssistant = () => {
   return (
       <div className=" w-full max-w-3xl lg:max-w-5xl p-4 lg:p-24 flex flex-col">
         <Heading 
-          title="专业写作助手"
+          title="写作助手"
           description="以专业标准辅助您进行文章、博文、推文等的创作与润色"
           icon={Pen}
           iconColor="text-orange-700"
@@ -60,7 +60,7 @@ const writingAssistant = () => {
                     value={input}
                     disabled={status !== 'awaiting_message'}
                     onChange={handleInputChange}
-                    placeholder="想创作什么，请让我帮助您一起完成..."
+                    placeholder="试试问我能帮您干些啥"
                   />
                   <Button  
                   // className="col-span-12 lg:col-span-2" 

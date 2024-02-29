@@ -8,7 +8,6 @@ import { usePathname } from "next/navigation";
 
 import { cn } from "@/lib/utils";
 import { FreeCounter } from "@/components/free-counter";
-import { Badge } from "./ui/badge";
 
 const poppins = Montserrat ({ weight: '600', subsets: ['latin'] });
 
@@ -44,7 +43,7 @@ const routes = [
     href: '/writing',
   },
   {
-    label: '用户设置',
+    label: '个人设定',
     icon: Settings,
     href: '/settings',
   },
@@ -72,33 +71,27 @@ export const Sidebar = ({
         </Link>
         <div className="space-y-1">
           {routes.map((route, index) => (
-            <div className="group flex p-3 w-full justify-start items-center font-medium cursor-pointer hover:text-white hover:bg-white/10 rounded-lg transition">
+            <div className="flex justify-between items-center">
               <Link
                 key={route.href} 
                 href={route.href}
                 className={cn(
-                  "text-sm flex flex-1 justify-between items-center",
-                  pathname === route.href ? "text-white" : "text-zinc-400",
+                  "text-sm group flex p-3 w-full justify-start font-medium cursor-pointer hover:text-white hover:bg-white/10 rounded-lg transition",
+                  pathname === route.href ? "text-white bg-white/10" : "text-zinc-400",
                 )}
               >
-                
-                <div className="flex justify-between items-center w-full">
-                  <div className="flex items-center">
-                    <route.icon className={`h-5 w-5 mr-3 ${route.color}`} />
-                    {route.label}
-                  </div>
-                  <div>
-                    {(index >= 2 && index <= 4) && <Badge variant="new" className="uppercase text-xs">new</Badge>}
-                  </div>
+                <div className="flex items-center flex-1">
+                  <route.icon className={cn("h-5 w-5 mr-3", route.color)} />
+                  {route.label}
                 </div>
-
               </Link>
+              {(index === 2 || index === 4) && <span className="text-xs bg-red-500 text-white py-1 px-2 rounded-full">New</span>}
             </div>
           ))}
         </div>
       </div>
       <FreeCounter 
-        apiLimitCount={apiLimitCount}
+        apiLimitCount={apiLimitCount} 
         isPro={isPro}
       />
     </div>

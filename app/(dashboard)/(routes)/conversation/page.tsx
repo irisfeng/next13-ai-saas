@@ -50,10 +50,12 @@ export default function ConversationPage() {
     <div className=" w-full max-w-3xl lg:max-w-5xl p-4 lg:p-24 flex flex-col">
       <Heading 
         title="聊天对话"
-        description="遥遥领先的OpenAI大模型"
+        description="免费体验强大的 "
         icon={MessageSquare}
         iconColor="text-violet-500"
         bgColor="bg-violet-500/10"
+        showBadge={1}
+        badgeText='GPT4'
         // className="w-full text-left"
       />
       
@@ -72,7 +74,7 @@ export default function ConversationPage() {
               className="flex-grow mr-4 p-2 rounded-lg border-2 border-gray-300"
               value={input}
               onChange={handleInputChange}
-              placeholder="老铁，今天想聊些啥"
+              placeholder="我今天能帮你做什么？"
             />
             <Button className="flex-shrink-0 text-white rounded-lg p-2" type="submit" size="icon">
               <Send />
