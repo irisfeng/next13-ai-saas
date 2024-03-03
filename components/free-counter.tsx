@@ -1,3 +1,5 @@
+"use client";
+
 import { Zap } from "lucide-react";
 import { useEffect, useState } from "react";
 
@@ -7,13 +9,15 @@ import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { useProModal } from "@/hooks/use-pro-modal";
 
+interface FreeCounterProps {
+  isPro: boolean;
+  apiLimitCount: number;
+}
+
 export const FreeCounter = ({
   isPro = false,
   apiLimitCount = 0,
-}: {
-  isPro: boolean,
-  apiLimitCount: number
-}) => {
+}: FreeCounterProps) => {
   const [mounted, setMounted] = useState(false);
   const proModal = useProModal();
 
@@ -41,7 +45,7 @@ export const FreeCounter = ({
             <Progress className="h-3" value={(apiLimitCount / MAX_FREE_COUNTS) * 100} />
           </div>
           <Button onClick={proModal.onOpen} variant="premium" className="w-full">
-            升 级
+            升级至专业版
             <Zap className="w-4 h-4 ml-2 fill-white" />
           </Button>
         </CardContent>

@@ -33,6 +33,13 @@ export async function POST(req: Request) {
       return Response.json({ error: "OpenAI API Key not configured." }, { status: 500 });
     }
 
+    const freeTrial = await checkApiLimit();
+    // const isPro = await checkSubscription();
+    if (!freeTrial) {
+      return Response.json({ error: "Free trial has expired. Please upgrade to pro." }, { status: 403 });
+    }
+
+
     // Parse the request body
     const input: {
       threadId: string | null;
@@ -52,12 +59,7 @@ export async function POST(req: Request) {
     });
     console.log("Message Created:", createdMessage); // 添加日志
 
-    const freeTrial = await checkApiLimit();
-    // const isPro = await checkSubscription();
 
-    if (!freeTrial) {
-      return Response.json({ error: "Free trial has expired. Please upgrade to pro." }, { status: 403 });
-    }
 
     return experimental_AssistantResponse(
       { threadId, messageId: createdMessage.id },
@@ -109,7 +111,6 @@ export async function POST(req: Request) {
         ).data;
         console.log("Response Messages:", responseMessages); // 添加日志
 
-        await incrementApiLimit();              // api limit increment
 
         // Send the messages
         for (const message of responseMessages) {
@@ -121,6 +122,9 @@ export async function POST(req: Request) {
             ) as Array<MessageContentText>,
           });
         }
+
+        await incrementApiLimit();
+        
       },
     );
   } catch (error) {

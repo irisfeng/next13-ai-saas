@@ -62,11 +62,7 @@ const writingAssistant = () => {
                     onChange={handleInputChange}
                     placeholder="试试问我能帮您干些啥"
                   />
-                  <Button  
-                  // className="col-span-12 lg:col-span-2" 
-                  className="flex-shrink-0 text-white rounded-lg p-2" // 使用flex-shrink-0防止按钮伸缩，ml-4添加左边距
-                          type="submit" 
-                    size="icon">
+                  <Button variant={'send'} type="submit" size="icon">
                     <Send />
                   </Button>
                 </div>

@@ -61,8 +61,8 @@ const PhotoPage = () => {
   return ( 
     <div>
       <Heading
-        title="图片生成"
-        description="按照您的描述生成图片..."
+        title="文生图"
+        description="按您的描述生成图片..."
         icon={ImageIcon}
         iconColor="text-pink-700"
         bgColor="bg-pink-700/10"
@@ -92,7 +92,7 @@ const PhotoPage = () => {
                     <Input
                       className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
                       disabled={isLoading} 
-                      placeholder="黄浦江畔美丽的东方明珠" 
+                      placeholder="输入您的描述..." 
                       {...field}
                     />
                   </FormControl>

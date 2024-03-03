@@ -3,12 +3,20 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Montserrat } from 'next/font/google'
-import { BookMarked, ImageIcon, Home, MessageSquare, MessageSquarePlus, Settings, Pen } from "lucide-react";
-import { usePathname } from "next/navigation";
+import { 
+  BookMarked, 
+  ImageIcon, 
+  Home, 
+  MessageSquare, 
+  Settings, 
+  Pen 
+} from "lucide-react";
 
+import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { FreeCounter } from "@/components/free-counter";
 import { Badge } from "./ui/badge";
+import { ImagePlusIcon } from "lucide-react";
 
 const poppins = Montserrat ({ weight: '600', subsets: ['latin'] });
 
@@ -26,7 +34,7 @@ const routes = [
     color: "text-violet-500",
   },
   {
-    label: '精简互译',
+    label: '中英互译',
     icon: BookMarked,
     color: "text-green-700",
     href: '/translation',
@@ -44,19 +52,29 @@ const routes = [
     href: '/writing',
   },
   {
+    label: '人像照片修复',
+    icon: ImagePlusIcon,
+    color: "text-blue-700",
+    href: '/image',
+  },
+  {
     label: '用户设置',
     icon: Settings,
     href: '/settings',
   },
+
 ];
+
+interface SidebarProps {
+  apiLimitCount: number;
+  isPro: boolean;
+}
 
 export const Sidebar = ({
   apiLimitCount = 0,
   isPro = false
-}: {
-  apiLimitCount: number;
-  isPro: boolean;
-}) => {
+}: SidebarProps) => {
+
   const pathname = usePathname();
 
   return (
@@ -88,7 +106,7 @@ export const Sidebar = ({
                     {route.label}
                   </div>
                   <div>
-                    {(index >= 2 && index <= 4) && <Badge variant="new" className="uppercase text-xs">new</Badge>}
+                    {(index >= 2 && index <= 5) && <Badge variant="premium" className="text-xs">New</Badge>}
                   </div>
                 </div>
 
