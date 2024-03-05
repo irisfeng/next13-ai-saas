@@ -9,14 +9,14 @@ import {
   Home, 
   MessageSquare, 
   Settings, 
-  Pen 
+  Pen,
+  ImagePlusIcon
 } from "lucide-react";
 
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { FreeCounter } from "@/components/free-counter";
 import { Badge } from "./ui/badge";
-import { ImagePlusIcon } from "lucide-react";
 
 const poppins = Montserrat ({ weight: '600', subsets: ['latin'] });
 
@@ -40,13 +40,13 @@ const routes = [
     href: '/translation',
   },
   {
-    label: '文生图',
+    label: '文生成图',
     icon: ImageIcon,
     color: "text-pink-700",
     href: '/image',
   },
   {
-    label: '写作助手',
+    label: '文字助手',
     icon: Pen,
     color: "text-orange-700",
     href: '/writing',
@@ -55,7 +55,7 @@ const routes = [
     label: '人像照片修复',
     icon: ImagePlusIcon,
     color: "text-blue-700",
-    href: '/image',
+    href: '/restorepics',
   },
   {
     label: '用户设置',

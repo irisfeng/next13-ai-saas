@@ -1,4 +1,4 @@
-import { BookMarked, ImageIcon, MessageSquare, MessageSquarePlus, Pen } from "lucide-react";
+import { BookMarked, ImageIcon, MessageSquare, ImagePlusIcon, Pen } from "lucide-react";
 
 export const MAX_FREE_COUNTS = 15;
 
@@ -11,14 +11,14 @@ export const tools = [
     bgColor: "bg-violet-500/10",
   },
   {
-    label: '精简互译',
+    label: '中英互译',
     icon: BookMarked,
     color: "text-green-700",
     bgColor: "bg-green-700/10",
     href: '/translation',
   },
   {
-    label: '图片生成',
+    label: '文生成图',
     icon: ImageIcon,
     color: "text-pink-700",
     bgColor: "bg-pink-700/10",
@@ -30,6 +30,13 @@ export const tools = [
     color: "text-orange-700",
     bgColor: "bg-orange-700/10",
     href: '/writing',
+  },
+  {
+    label: '人像照片修复',
+    icon: ImagePlusIcon,
+    color: "text-blue-700",
+    bgcolor: "bg-blue-700/10",
+    href: '/restorepics',
   },
   // {
   //   label: 'Music',

@@ -1,199 +1,68 @@
 "use client";
 
-import * as z from "zod";
-import axios from "axios";
-import Image from "next/image";
-import { useState } from "react";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { Download, ImageIcon, Send } from "lucide-react";
-import { useForm } from "react-hook-form";
-import { toast } from "react-hot-toast";
-import { useRouter } from "next/navigation";
-
-import { Heading } from "@/components/heading";
+import React, { useState } from 'react';
+import axios from 'axios';
+import { ImageIcon, Send } from 'lucide-react';
+import { Heading } from '@/components/heading';
 import { Button } from "@/components/ui/button";
-import { Card, CardFooter } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
-import { Loader } from "@/components/loader";
-import { Empty } from "@/components/ui/empty";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { useProModal } from "@/hooks/use-pro-modal";
+import { useRouter } from 'next/navigation';
 
-import { amountOptions, formSchema, resolutionOptions } from "./constants";
 
-const PhotoPage = () => {
-  const proModal = useProModal();
+function ImagePage() {
+  const [prompt, setPrompt] = useState('');
+  const [image, setImage] = useState(null);
+
   const router = useRouter();
-  const [photos, setPhotos] = useState<string[]>([]);
 
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      prompt: "",
-      amount: "1",
-      resolution: "256x256"
-    }
-  });
+  const handlePromptChange = (event: { target: { value: React.SetStateAction<string>; }; }) => {
+    setPrompt(event.target.value);
+  };
 
-  const isLoading = form.formState.isSubmitting;
+  const handleSubmit = async (event: { preventDefault: () => void; }) => {
+    event.preventDefault();
 
-  const onSubmit = async (values: z.infer<typeof formSchema>) => {
-    try {
-      setPhotos([]);
+    const response = await axios.post('/api/predictions', {
+      prompt,
+    });
 
-      const response = await axios.post('/api/image', values);
+    setImage(response.data[0]);
 
-      const urls = response.data.map((image: { url: string }) => image.url);
+    router.refresh();
+  };
 
-      setPhotos(urls);
-    } catch (error: any) {
-      if (error?.response?.status === 403) {
-        proModal.onOpen();
-      } else {
-        toast.error("Something went wrong...");
-      }
-    } finally {
-      router.refresh();
-    }
-  }
-
-  return ( 
-    <div>
-      <Heading
-        title="文生图"
-        description="按您的描述生成图片..."
-        icon={ImageIcon}
-        iconColor="text-pink-700"
-        bgColor="bg-pink-700/10"
-      />
-      <div className="px-4 lg:px-8">
-        <Form {...form}>
-          <form 
-            onSubmit={form.handleSubmit(onSubmit)} 
-            className="
-              rounded-lg 
-              border 
-              w-full 
-              p-4 
-              px-3 
-              md:px-6 
-              focus-within:shadow-sm
-              grid
-              grid-cols-12
-              gap-2
-            "
-          >
-            <FormField
-              name="prompt"
-              render={({ field }) => (
-                <FormItem className="col-span-12 lg:col-span-6">
-                  <FormControl className="m-0 p-0">
-                    <Input
-                      className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
-                      disabled={isLoading} 
-                      placeholder="输入您的描述..." 
-                      {...field}
-                    />
-                  </FormControl>
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="amount"
-              render={({ field }) => (
-                <FormItem className="col-span-12 lg:col-span-2">
-                  <Select 
-                    disabled={isLoading} 
-                    onValueChange={field.onChange} 
-                    value={field.value} 
-                    defaultValue={field.value}
-                  >
-                    <FormControl>
-                      <SelectTrigger>
-                        <SelectValue defaultValue={field.value} />
-                      </SelectTrigger>
-                    </FormControl>
-                    <SelectContent>
-                      {amountOptions.map((option) => (
-                        <SelectItem 
-                          key={option.value} 
-                          value={option.value}
-                        >
-                          {option.label}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="resolution"
-              render={({ field }) => (
-                <FormItem className="col-span-12 lg:col-span-2">
-                  <Select 
-                    disabled={isLoading} 
-                    onValueChange={field.onChange} 
-                    value={field.value} 
-                    defaultValue={field.value}
-                  >
-                    <FormControl>
-                      <SelectTrigger>
-                        <SelectValue defaultValue={field.value} />
-                      </SelectTrigger>
-                    </FormControl>
-                    <SelectContent>
-                      {resolutionOptions.map((option) => (
-                        <SelectItem 
-                          key={option.value} 
-                          value={option.value}
-                        >
-                          {option.label}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </FormItem>
-              )}
-            />
-            <Button className="flex-shrink-0 text-white rounded-lg p-2" type="submit" disabled={isLoading} size="icon">
-              <Send />
-            </Button>
+  return (
+    <section className="w-full h-full flex items-center justify-center">
+      <div className=" w-full max-w-3xl lg:max-w-5xl p-4 lg:p-24 flex flex-col">
+        <Heading
+          title="文生成图"
+          description="按提示生成图片"
+          icon={ImageIcon}
+          iconColor="text-pink-700"
+          bgColor="bg-pink-700/10"
+          showBadge={1}
+          badgeText='S.Diffusion 2'
+        />
+        <div className="px-4 lg:px-8 mt-4 w-full">
+          <form className='rounded-lg' onSubmit={handleSubmit}>
+            <div className="flex items-center justify-center mt-4 w-full lg:max-w-4xl">
+              <input 
+                type="text" 
+                value={prompt} 
+                onChange={handlePromptChange} 
+                placeholder="请输入提示词文本[暂时只支持英文]..." 
+                className="flex-grow mr-4 p-2 rounded-lg border-2 border-gray-300 w-full" 
+              />
+              <Button variant={'send'} type="submit" size="icon">
+                <Send />
+              </Button>
+            </div>
           </form>
-        </Form>
-        {isLoading && (
-          <div className="p-20">
-            <Loader />
-          </div>
-        )}
-        {photos.length === 0 && !isLoading && (
-          <Empty label="空空如也..." />
-        )}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-8">
-          {photos.map((src) => (
-            <Card key={src} className="rounded-lg overflow-hidden">
-              <div className="relative aspect-square">
-                <Image
-                  fill
-                  alt="Generated"
-                  src={src}
-                />
-              </div>
-              <CardFooter className="p-2">
-                <Button onClick={() => window.open(src)} variant="secondary" className="w-full">
-                  <Download className="h-4 w-4 mr-2" />
-                  下 载
-                </Button>
-              </CardFooter>
-            </Card>
-          ))}
         </div>
+        
+        {image && <img src={image} alt="生成的图片" className="mt-8" />}
       </div>
-    </div>
-   );
+    </section>
+  );
 }
- 
-export default PhotoPage;
+
+export default ImagePage;

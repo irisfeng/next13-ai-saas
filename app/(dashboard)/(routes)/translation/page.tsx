@@ -3,7 +3,7 @@
 import { Message, experimental_useAssistant as useAssistant } from 'ai/react';
 import { useEffect, useRef } from 'react';
 
-import { BookMarked, Calculator, Heart, Send } from "lucide-react";
+import { BookMarked, Send } from "lucide-react";
 import { Heading } from "@/components/heading";
 import { Button } from "@/components/ui/button";
 import ReactMarkdown from "react-markdown";
@@ -12,11 +12,15 @@ import { UserAvatar } from "@/components/user-avatar";
 import { cn } from "@/lib/utils";
 import { Empty } from "@/components/ui/empty";
 import 'katex/dist/katex.min.css'; // 引入 KaTeX 样式
+import { useRouter } from 'next/navigation';
+
 
 
 const someAssistant = () => {
 
-  const { status, messages, input, submitMessage, handleInputChange, error } =
+  const router = useRouter();
+
+  const { status, messages, input, submitMessage, handleInputChange } =
     useAssistant({
       api: '/api/translation',
     });
@@ -32,8 +36,8 @@ const someAssistant = () => {
   return (
       <div className=" w-full max-w-3xl lg:max-w-5xl p-4 lg:p-24 flex flex-col">
         <Heading 
-          title="精简互译"
-          description="直接中英翻译，标准：信达雅"
+          title="简洁互译"
+          description="中英翻译信达雅"
           icon={BookMarked}
           iconColor="text-green-700"
           bgColor="bg-green-700/10"

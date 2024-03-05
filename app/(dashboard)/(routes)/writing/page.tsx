@@ -32,8 +32,10 @@ const writingAssistant = () => {
   return (
       <div className=" w-full max-w-3xl lg:max-w-5xl p-4 lg:p-24 flex flex-col">
         <Heading 
-          title="写作助手"
-          description="以专业标准辅助您进行文章、博文、推文等的创作与润色"
+          title="文字助手"
+          showBadge={1}
+          badgeText='assistant API'
+          description="辅助写作"
           icon={Pen}
           iconColor="text-orange-700"
           bgColor="bg-orange-700/10"
