@@ -11,9 +11,6 @@ dependencies:
   '@hookform/resolvers':
     specifier: ^3.3.2
     version: 3.3.4(react-hook-form@7.51.0)
-  '@paypal/checkout-server-sdk':
-    specifier: ^1.0.3
-    version: 1.0.3
   '@prisma/client':
     specifier: ^5.8.1
     version: 5.10.2(prisma@5.10.2)
@@ -172,9 +169,6 @@ devDependencies:
   '@types/mathjax':
     specifier: ^0.0.40
     version: 0.0.40
-  '@types/paypal__checkout-server-sdk':
-    specifier: ^1.0.8
-    version: 1.0.8
   prettier:
     specifier: ^3.1.1
     version: 3.2.5
@@ -571,18 +565,6 @@ packages:
     dependencies:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.17.1
-    dev: false
-
-  /@paypal/checkout-server-sdk@1.0.3:
-    resolution: {integrity: sha512-UEdq8akEdMz0Vs4qoQFU2gMp8PpyE/HKyMwiZuK4vIWUKl8jfd1fWKjQN5cDFm9NkFUIp5U7h++rdMOVj9WMNA==}
-    engines: {node: '>=8'}
-    dependencies:
-      '@paypal/paypalhttp': 1.0.1
-    dev: false
-
-  /@paypal/paypalhttp@1.0.1:
-    resolution: {integrity: sha512-DC7AHxTT7drF6dUi3YaFdPVuT15sIkpD5H2eHmdtFgxM4UanS1o1ZDfMhR9mpxd8o+X6pz2r+EZVRRq+n1cssQ==}
-    engines: {node: '>=4'}
     dev: false
 
   /@peculiar/asn1-schema@2.3.8:
@@ -1755,18 +1737,7 @@ packages:
 
   /@types/node@20.4.1:
     resolution: {integrity: sha512-JIzsAvJeA/5iY6Y/OxZbv1lUcc8dNSE77lb2gnBH+/PJ3lFR1Ccvgwl5JWnHAkNHcRsT0TbpVOsiMKZ1F/yyJg==}
-
-  /@types/paypal__checkout-server-sdk@1.0.8:
-    resolution: {integrity: sha512-PNmNBlcany7Dh42Qb5mkl+KqYfR39aVcalLm3FXHCozKtDyfLE1JAig7C2mANPdC3fmQhdvcs0n3ym6K10CLnw==}
-    dependencies:
-      '@types/paypal__paypalhttp': 1.0.3
-    dev: true
-
-  /@types/paypal__paypalhttp@1.0.3:
-    resolution: {integrity: sha512-Zen2JyaCOPRkPFxXetopbYWsSpi3VlWWYBZKNEXruxp6vzh7f/an/IaeZ23tmd11rg56zYtmXS2e1PfllVRZtQ==}
-    dependencies:
-      '@types/node': 20.4.1
-    dev: true
+    dev: false
 
   /@types/prop-types@15.7.11:
     resolution: {integrity: sha512-ga8y9v9uyeiLdpKddhxYQkxNDrfvuPrlFb0N1qnZZByvcElJaXthF1UhvCh9TLWJBEHeNtdnbysW7Y6Uq8CVng==}
