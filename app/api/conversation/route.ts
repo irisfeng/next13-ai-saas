@@ -47,10 +47,10 @@ export async function POST(req: Request) {
     }
 
     const response = await openai.chat.completions.create({
-      // model: "gpt-3.5-turbo-1106",  
-      model: "gpt-4-1106-preview",
+      model: "gpt-3.5-turbo-1106",
+      // model: "gpt-4-1106-preview",
       stream: true,
-      messages : messages,
+      messages: messages,
 
     });
 
@@ -62,7 +62,7 @@ export async function POST(req: Request) {
 
     // Convert the response into a friendly text-stream
     const stream = OpenAIStream(response);
-    console.log(messages);
+    // console.log(messages);
     return new StreamingTextResponse(stream);
 
   } catch (error) {
