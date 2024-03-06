@@ -31,7 +31,7 @@ export const ProModal = () => {
 
       window.location.href = response.data.url;
     } catch (error) {
-      toast.error("Something went wrong");
+      toast.error("好像出错了，请稍后再试。");
     } finally {
       setLoading(false);
     }

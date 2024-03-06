@@ -1,6 +1,7 @@
 import { auth } from "@clerk/nextjs";
 import { experimental_AssistantResponse } from 'ai';
 import OpenAI from 'openai';
+import { NextResponse } from "next/server";
 import { MessageContentText } from 'openai/resources/beta/threads/messages/messages';
 
 import { checkSubscription } from "@/lib/subscription";
@@ -26,18 +27,19 @@ export async function POST(req: Request) {
     }
 
     if (!userId) {
-      return Response.json({error: "Unauthorized"}, { status: 401 });
+      return new NextResponse("Unauthorized", { status: 401 });
     }
 
     if (!openai.apiKey) {
-      return Response.json({error: "OpenAI API Key not configured."}, { status: 500 });
+      return new NextResponse("OpenAI API Key not configured.", { status: 500 });
+
     }
 
     const freeTrial = await checkApiLimit();
     // const isPro = await checkSubscription();
 
     if (!freeTrial) {
-      return Response.json({ error: "Free trial has expired. Please upgrade to pro." }, { status: 403 });
+      return new NextResponse("Free trial has expired. Please upgrade to pro.", { status: 403 });
     }
 
 
@@ -128,7 +130,7 @@ export async function POST(req: Request) {
   } catch (error) {
     console.error("API Error:", error);
     // 返回一个错误响应
-    return new Response(JSON.stringify({ error: "Internal Server Error" }), {
+    return new NextResponse(JSON.stringify({ error: "Internal Server Error" }), {
       status: 500,
       headers: {
         'Content-Type': 'application/json',

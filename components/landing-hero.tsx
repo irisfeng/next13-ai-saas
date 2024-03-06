@@ -17,10 +17,12 @@ export const LandingHero = () => {
           <TypewriterComponent
             options={{
               strings: [
-                "对话机器人",
-                "文生图",
+                "智能模型对话",
+                "文生成图",
                 "中英互译",
-                "专业写作助手",
+                "写作助手",
+                "人像照片修复",
+                "文本转语音"
               ],
               autoStart: true,
               loop: true,
@@ -29,7 +31,7 @@ export const LandingHero = () => {
         </div>
       </div>
       <div className="text-sm md:text-xl font-light text-zinc-400">
-       更多好用功能持续开发中... 
+       更多好用功能持续更新中... 
       </div>
       <div>
         <Link href={isSignedIn ? "/dashboard" : "/sign-up"}>

@@ -3,7 +3,7 @@
 import { useChat } from 'ai/react';
 import { Message } from 'ai';
 import ReactMarkdown from "react-markdown";
-import * as z from "zod";
+// import * as z from "zod";
 import { MessageSquare, Send } from "lucide-react";
 
 import { BotAvatar } from "@/components/bot-avatar";

@@ -26,9 +26,9 @@ export async function POST(
         }
 
         const freeTrial = await checkApiLimit();
-        const isPro = await checkSubscription();
+        // const isPro = await checkSubscription();
 
-        if (!freeTrial && !isPro) {
+        if (!freeTrial) {
             return new NextResponse("Free trial has expired. Please upgrade to pro.", { status: 403 });
         }
 
@@ -42,9 +42,7 @@ export async function POST(
         );
         console.log("Response:", response);
 
-        if (!isPro) {
-            await incrementApiLimit();
-        }
+        await incrementApiLimit();
 
         return NextResponse.json(response);
     } catch (error) {
