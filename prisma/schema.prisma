@@ -25,17 +25,17 @@ model UserSubscription {
   stripeCurrentPeriodEnd DateTime? @map(name: "stripe_current_period_end")
 }
 
-model Prediction {
-  id    Int     @id @default(autoincrement())
-  uuid  String  @unique
-  input Json?
-  output Json?
-  status String?
-  created_at DateTime?
-  started_at DateTime?
-  completed_at DateTime?
-  version String?
-  metrics Json?
-  error String?
-  logs String? @db.Text
-}
+// model Prediction {
+//   id           Int       @id @default(autoincrement())
+//   uuid         String    @unique
+//   input        Json?
+//   output       Json?
+//   status       String?
+//   created_at   DateTime?
+//   started_at   DateTime?
+//   completed_at DateTime?
+//   version      String?
+//   metrics      Json?
+//   error        String?
+//   logs         String?   @db.Text
+// }

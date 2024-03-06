@@ -22,15 +22,15 @@ export const SubscriptionButton = ({
 
       window.location.href = response.data.url;
     } catch (error) {
-      toast.error("Something Went Wrong");
+      toast.error("好像出错了，请稍后再试...");
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <Button variant={isPro ? "default" : "premium"} disabled={loading} onClick={onClick} >
-      {isPro ? "Manage Subscription" : "Upgrade"}
+    <Button variant={isPro ? "default" : "premium"} disabled={true} onClick={onClick} > 
+      {isPro ? "管理订阅" : "升级至专业版"}
       {!isPro && <Zap className="w-4 h-4 ml-2 fill-white" />}
     </Button>
   )

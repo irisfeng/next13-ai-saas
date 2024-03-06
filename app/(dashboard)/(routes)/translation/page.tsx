@@ -34,6 +34,7 @@ const someAssistant = () => {
   }, [status]);
 
   return (
+    <section className="w-full h-full flex items-center justify-center">
       <div className=" w-full max-w-3xl lg:max-w-5xl p-4 lg:p-24 flex flex-col">
         <Heading 
           title="简洁互译"
@@ -73,6 +74,7 @@ const someAssistant = () => {
               </form>
             </div>
         </div>
+    </section>
   );
 }
 

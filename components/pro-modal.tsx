@@ -66,7 +66,7 @@ export const ProModal = () => {
           </DialogDescription>
         </DialogHeader>
         <DialogFooter>
-          <Button disabled={loading} onClick={onSubscribe} size="lg" variant="premium" className="w-full">
+          <Button disabled={true} onClick={onSubscribe} size="lg" variant="premium" className="w-full" >
             升 级
             <Zap className="w-4 h-4 ml-2 fill-white" />
           </Button>

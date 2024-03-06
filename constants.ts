@@ -1,6 +1,6 @@
 import { BookMarked, ImageIcon, MessageSquare, ImagePlusIcon, Pen } from "lucide-react";
 
-export const MAX_FREE_COUNTS = 15;
+export const MAX_FREE_COUNTS = 10;
 
 export const tools = [
   {
