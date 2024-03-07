@@ -62,7 +62,7 @@ function ImagePage() {
               <AutoResizeInput 
                 value={prompt} 
                 onChange={handlePromptChange} 
-                placeholder='请输入提示词文本[暂时只支持英文]...'
+                placeholder='请输入提示文本[暂只支持英文]...'
                 className='w-full resize-none overflow-hidden p-2 border-2 mr-4 border-gray-300 rounded-md' 
               /> 
               
