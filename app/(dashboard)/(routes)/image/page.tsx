@@ -6,6 +6,7 @@ import { ImageIcon, Send, Loader } from 'lucide-react';
 import { Heading } from '@/components/heading';
 import { Button } from "@/components/ui/button";
 import { useRouter } from 'next/navigation';
+import AutoResizeInput from '@/components/autoresize-input';
 
 
 function ImagePage() {
@@ -51,13 +52,19 @@ function ImagePage() {
         <div className="px-4 lg:px-8 mt-4 w-full">
           <form className='rounded-lg' onSubmit={handleSubmit}>
             <div className="flex items-center justify-center mt-4 w-full lg:max-w-4xl">
-              <input 
+              {/* <input 
                 type="text" 
                 value={prompt} 
                 onChange={handlePromptChange} 
                 placeholder="请输入提示词文本[暂时只支持英文]..." 
                 className="flex-grow mr-4 p-2 rounded-lg border-2 border-gray-300 w-full" 
-              />
+              /> */}
+              <AutoResizeInput 
+                value={prompt} 
+                onChange={handlePromptChange} 
+                placeholder='请输入提示词文本[暂时只支持英文]...'
+                className='w-full resize-none overflow-hidden p-2 border-2 mr-4 border-gray-300 rounded-md' 
+              /> 
               
               <Button variant={'send'} type="submit" size="icon" disabled={loading}>
                 {loading ? <Loader className="animate-spin" /> : <Send />}
