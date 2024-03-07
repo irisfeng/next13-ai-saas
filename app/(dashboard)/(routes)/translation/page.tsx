@@ -10,9 +10,9 @@ import ReactMarkdown from "react-markdown";
 import { BotAvatar } from "@/components/bot-avatar";
 import { UserAvatar } from "@/components/user-avatar";
 import { cn } from "@/lib/utils";
-import { Empty } from "@/components/ui/empty";
 import 'katex/dist/katex.min.css'; // 引入 KaTeX 样式
 import { useRouter } from 'next/navigation';
+import AutoResizeInput from '@/components/autoresize-input';
 
 
 
@@ -26,12 +26,12 @@ const someAssistant = () => {
     });
 
     // When status changes to accepting messages, focus the input:
-  const inputRef = useRef<HTMLInputElement>(null);
-  useEffect(() => {
-    if (status === 'awaiting_message') {
-      inputRef.current?.focus();
-    }
-  }, [status]);
+  // const inputRef = useRef<HTMLInputElement>(null);
+  // useEffect(() => {
+  //   if (status === 'awaiting_message') {
+  //     inputRef.current?.focus();
+  //   }
+  // }, [status]);
 
   return (
     <section className="w-full h-full flex items-center justify-center">
@@ -58,7 +58,7 @@ const someAssistant = () => {
             <div className="px-4 lg:px-8 mt-4 w-full">
               <form className='rounded-lg' onSubmit={submitMessage}>
                 <div className="flex items-center justify-center mt-4 w-full lg:max-w-4xl">
-                  <input
+                  {/* <input
                     // className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
                     className="flex-grow mr-4 p-2 rounded-lg border-2 border-gray-300" // 使用flex-grow确保input占据大部分空间
                     ref={inputRef}
@@ -66,6 +66,12 @@ const someAssistant = () => {
                     disabled={status !== 'awaiting_message'}
                     onChange={handleInputChange}
                     placeholder="直接输入需要翻译的内容..."
+                  /> */}
+                  <AutoResizeInput
+                    value={input}
+                    onChange={handleInputChange}
+                    placeholder='直接输入需要翻译的内容...'
+                    className='w-full resize-none overflow-hidden p-2 border-2 mr-4 border-gray-300 rounded-md'
                   />
                   <Button variant={'send'} type="submit" size="icon">
                     <Send />

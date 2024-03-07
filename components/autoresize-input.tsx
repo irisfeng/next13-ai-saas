@@ -32,6 +32,7 @@ const AutoResizeInput: React.FC<AutoResizeInputProps> = (props) => {
   return (
     <textarea
       ref={textareaRef}
+      rows={1}  // 设置默认高度为一行
       {...props} // 将所有的props传递给textarea元素
       style={{ ...props.style, overflow: 'hidden', resize: 'none' }} // 保持overflow和resize的样式，同时允许用户添加更多的样式
     />
