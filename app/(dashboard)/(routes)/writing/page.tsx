@@ -33,10 +33,10 @@ const writingAssistant = () => {
     <section className="w-full h-full flex items-center justify-center">
       <div className=" w-full max-w-3xl lg:max-w-5xl p-4 lg:p-24 flex flex-col">
         <Heading 
-          title="文字助手"
+          title="总结能手"
           showBadge={1}
-          badgeText='assistant API'
-          description="辅助写作"
+          badgeText='Hot'
+          description="擅长中英文章总结，试试便知"
           icon={Pen}
           iconColor="text-orange-700"
           bgColor="bg-orange-700/10"

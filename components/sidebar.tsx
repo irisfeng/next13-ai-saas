@@ -46,13 +46,13 @@ const routes = [
     href: '/image',
   },
   {
-    label: '文字助手',
+    label: '总结能手',
     icon: Pen,
     color: "text-orange-700",
     href: '/writing',
   },
   {
-    label: '人像照片修复',
+    label: '人像修复',
     icon: ImagePlusIcon,
     color: "text-blue-700",
     href: '/restorepics',
@@ -106,7 +106,9 @@ export const Sidebar = ({
                     {route.label}
                   </div>
                   <div>
-                    {(index >= 2 && index <= 5) && <Badge variant="premium" className="text-xs">New</Badge>}
+                    {(index === 1) && <Badge variant="premium" className="text-xs">稳 定</Badge>}
+                    {(index >= 3 && index <= 4) && <Badge variant="hot" className="text-xs">火 爆</Badge>}
+                    {(index === 2 ) && <Badge variant="premium" className="text-xs">上 新</Badge>}
                   </div>
                 </div>
 

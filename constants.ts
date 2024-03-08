@@ -25,14 +25,14 @@ export const tools = [
     href: '/image',
   },
   {
-    label: '写作助手',
+    label: '总结能手',
     icon: Pen,
     color: "text-orange-700",
     bgColor: "bg-orange-700/10",
     href: '/writing',
   },
   {
-    label: '人像照片修复',
+    label: '人像修复',
     icon: ImagePlusIcon,
     color: "text-blue-700",
     bgcolor: "bg-blue-700/10",
