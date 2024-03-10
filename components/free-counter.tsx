@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 // import { Progress } from "@/components/ui/progress";
 import { useProModal } from "@/hooks/use-pro-modal";
 import { Badge } from "./ui/badge";
+import DateTime from '@/components/datetime';
 
 interface FreeCounterProps {
   isPro: boolean;
@@ -41,7 +42,8 @@ export const FreeCounter = ({
       <Card className="bg-white/10 border-0">
         <CardContent className="py-6">
           <div className="text-center text-sm text-white mb-4 space-y-2">
-            <p><strong> 每日免费次数 </strong></p> <Badge variant="premium" className="text-xs italic" >Daily Reset</Badge>
+            <DateTime />
+            <p><strong> 免费次数 </strong> <Badge variant="premium" className="text-xs italic" >DailyReset</Badge></p>
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
               <p>{gpt3ApiLimitCount} / {GPT3_FREE_COUNTS}</p> <p>GPT3.5</p>
             </div>
