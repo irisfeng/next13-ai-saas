@@ -41,17 +41,17 @@ export const FreeCounter = ({
       <Card className="bg-white/10 border-0">
         <CardContent className="py-6">
           <div className="text-center text-sm text-white mb-4 space-y-2">
-            <p><strong> 免费使用次数 </strong></p> <Badge variant="premium" className="text-xs italic" >Daily Reset</Badge>
+            <p><strong> 每日免费次数 </strong></p> <Badge variant="premium" className="text-xs italic" >Daily Reset</Badge>
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
               <p>{gpt3ApiLimitCount} / {GPT3_FREE_COUNTS}</p> <p>GPT3.5</p>
             </div>
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-              <p>{apiLimitCount} / {MAX_FREE_COUNTS}</p> <p>GPT4/Replicate共享</p>
+              <p>{apiLimitCount} / {MAX_FREE_COUNTS}</p> <p>GPT4/Replicate</p>
             </div>
             {/* <Progress className="h-3" value={(apiLimitCount / MAX_FREE_COUNTS) * 100} /> */}
           </div>
           <Button onClick={proModal.onOpen} variant="premium" className="w-full">
-            升级至专业版
+            升级专业版
             <Zap className="w-4 h-4 ml-2 fill-white" />
           </Button>
         </CardContent>
