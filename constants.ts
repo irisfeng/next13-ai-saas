@@ -1,6 +1,7 @@
 import { BookMarked, ImageIcon, MessageSquare, ImagePlusIcon, Pen } from "lucide-react";
 
 export const MAX_FREE_COUNTS = 10;
+export const GPT3_FREE_COUNTS = 25;
 
 export const tools = [
   {

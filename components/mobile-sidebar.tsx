@@ -9,9 +9,11 @@ import { Sidebar } from "@/components/sidebar";
 
 export const MobileSidebar = ({
   apiLimitCount = 0,
+  gpt3ApiLimitCount = 0,
   isPro = false
 }: {
   apiLimitCount: number;
+  gpt3ApiLimitCount: number; // Add the missing property here
   isPro: boolean;
 }) => {
   const [isMounted, setIsMounted] = useState(false);
@@ -32,7 +34,7 @@ export const MobileSidebar = ({
         </Button>
       </SheetTrigger>
       <SheetContent side="left" className="p-0">
-        <Sidebar isPro={isPro} apiLimitCount={apiLimitCount} />
+        <Sidebar isPro={isPro} apiLimitCount={apiLimitCount} gpt3ApiLimitCount={gpt3ApiLimitCount} />
       </SheetContent>
     </Sheet>
   );

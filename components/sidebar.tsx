@@ -67,11 +67,13 @@ const routes = [
 
 interface SidebarProps {
   apiLimitCount: number;
+  gpt3ApiLimitCount: number;
   isPro: boolean;
 }
 
-export const Sidebar = ({
+export  const Sidebar =  ({
   apiLimitCount = 0,
+  gpt3ApiLimitCount = 0,
   isPro = false
 }: SidebarProps) => {
 
@@ -106,21 +108,25 @@ export const Sidebar = ({
                     {route.label}
                   </div>
                   <div>
-                    {(index === 1) && <Badge variant="premium" className="text-xs">稳 定</Badge>}
-                    {(index >= 3 && index <= 4) && <Badge variant="hot" className="text-xs">火 爆</Badge>}
-                    {(index === 2 ) && <Badge variant="premium" className="text-xs">上 新</Badge>}
+                    {(index === 1) && <Badge variant="premium" className="text-xs italic">Bravo</Badge>}
+                    {(index === 2) && <Badge variant="premium" className="text-xs italic">Pro</Badge>}
+                    {(index === 3) && <Badge variant="hot" className="text-xs italic">Hot!</Badge>}
+                    {(index === 4) && <Badge variant="hot" className="text-xs italic">Pro</Badge>}
+                    {/* {(index === 5) && <Badge variant="premium" className="text-xs">Pro</Badge>} */}
                   </div>
                 </div>
-
               </Link>
             </div>
           ))}
         </div>
       </div>
+      
       <FreeCounter 
+        gpt3ApiLimitCount={gpt3ApiLimitCount}
         apiLimitCount={apiLimitCount}
-        isPro={isPro}
+        isPro={isPro} 
       />
+
     </div>
   );
 };
