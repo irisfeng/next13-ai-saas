@@ -2,8 +2,8 @@
     "crons":[
         {
 
-            "path": "/app/api/resetApiCounts",
-            "schedule": "00 06 * * *"
+            "path": "/app/api/cron",
+            "schedule": "30 06 * * *"
         }
     ]
 }
