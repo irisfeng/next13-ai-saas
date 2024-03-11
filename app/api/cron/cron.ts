@@ -18,6 +18,10 @@
 import { Request, Response } from 'express';
 import { resetApiLimit } from '@/lib/api-limit';
 
+export const config = {
+    runtime: 'edge',
+}
+
 export default async function handler(req: Request, res: Response) {
     if (req.method === 'POST') {
         await resetApiLimit();

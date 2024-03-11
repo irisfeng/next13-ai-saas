@@ -3,7 +3,7 @@
         {
 
             "path": "/app/api/cron",
-            "schedule": "30 06 * * *"
+            "schedule": "15 12 * * *"
         }
     ]
 }
