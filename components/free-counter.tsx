@@ -45,10 +45,10 @@ export const FreeCounter = ({
             <DateTime />
             <p><strong> 免费次数 </strong> <Badge variant="premium" className="text-xs italic" >DailyReset</Badge></p>
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-              <p>{gpt3ApiLimitCount} / {GPT3_FREE_COUNTS}</p> <p>GPT3.5</p>
+              <p>{gpt3ApiLimitCount}/{GPT3_FREE_COUNTS}</p> <p>GPT3.5</p>
             </div>
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-              <p>{apiLimitCount} / {MAX_FREE_COUNTS}</p> <p>GPT4/Replicate</p>
+              <p>{apiLimitCount}/{MAX_FREE_COUNTS}</p> <p>GPT4/Replicate</p>
             </div>
             {/* <Progress className="h-3" value={(apiLimitCount / MAX_FREE_COUNTS) * 100} /> */}
           </div>

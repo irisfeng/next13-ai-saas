@@ -1,0 +1,9 @@
+{
+    "crons":[
+        {
+
+            "path": "/app/api/resetApiCounts",
+            "schedule": "00 06 * * *"
+        }
+    ]
+}

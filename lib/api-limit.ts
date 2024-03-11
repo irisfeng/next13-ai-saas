@@ -1,21 +1,6 @@
 import { auth } from "@clerk/nextjs";
 import prismadb from "@/lib/prismadb";
-import cron from "node-cron";
 import { MAX_FREE_COUNTS, GPT3_FREE_COUNTS } from "@/constants";
-
-// Schedule tasks to be run on the server.
-cron.schedule('0 22 * * * *', async function() {
-  console.log('Cron job started'); // 输出开始执行的日志
-  const usersApiLimit = await prismadb.userApiLimit.findMany();
-
-  for (let userApiLimit of usersApiLimit) {
-    await prismadb.userApiLimit.update({
-      where: { userId: userApiLimit.userId },
-      data: { count: 0, gpt3Count: 0 },
-    });
-  }
-  console.log('Cron job finished'); // 输出执行完成的日志
-});
 
 export const incrementApiLimit = async () => {
   const { userId } = auth();
@@ -25,7 +10,7 @@ export const incrementApiLimit = async () => {
   }
 
   const userApiLimit = await prismadb.userApiLimit.findUnique({
-    where: { 
+    where: {
       userId
     },
   });
@@ -50,7 +35,7 @@ export const incrementGpt3ApiLimit = async () => {
   }
 
   const userApiLimit = await prismadb.userApiLimit.findUnique({
-    where: { 
+    where: {
       userId
     },
   });
@@ -75,8 +60,8 @@ export const checkApiLimit = async () => {
   }
 
   const userApiLimit = await prismadb.userApiLimit.findUnique({
-    where: { 
-      userId: userId 
+    where: {
+      userId: userId
     },
   });
 
@@ -95,8 +80,8 @@ export const checkGpt3ApiLimit = async () => {
   }
 
   const userApiLimit = await prismadb.userApiLimit.findUnique({
-    where: { 
-      userId: userId 
+    where: {
+      userId: userId
     },
   });
 
