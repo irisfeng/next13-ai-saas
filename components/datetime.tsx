@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import moment from 'moment-timezone';
 
 function DateTime() {
-  const [date, setDate] = useState(moment().tz("Asia/Shanghai").format('YYYY-MM-DD HH:mm:ss'));
+  const [date, setDate] = useState(moment().tz("Asia/Shanghai").format('MM月DD日 HH:mm'));
 
   useEffect(() => {
     const timer = setInterval(() => {
