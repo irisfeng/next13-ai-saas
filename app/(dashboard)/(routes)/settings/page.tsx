@@ -18,7 +18,7 @@ const SettingsPage = async () => {
       />
       <div className="px-4 lg:px-8 space-y-4">
         <div className="text-muted-foreground text-sm">
-          {isPro ? "您是尊贵的PRO用户." : "您是免费用户"}
+          {isPro ? "您是尊贵的PRO套餐用户." : "您是免费套餐用户"}
         </div>
         <SubscriptionButton isPro={isPro} />
       </div>

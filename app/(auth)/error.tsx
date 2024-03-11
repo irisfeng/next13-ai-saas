@@ -4,7 +4,7 @@ import { Empty } from "@/components/ui/empty";
 
 const Error = () => {
   return ( 
-    <Empty label="Something went wrong." />
+    <Empty label="哪里不对劲，出错了额..." />
    );
 }
  
