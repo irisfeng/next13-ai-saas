@@ -133,14 +133,8 @@ export const getGpt3ApiLimitCount = async () => {
 };
 
 export const resetApiLimit = async () => {
-  const { userId } = auth();
-
-  if (!userId) {
-    return;
-  }
-
-  await prismadb.userApiLimit.update({
-    where: { userId: userId },
+  await prismadb.userApiLimit.updateMany({
     data: { count: 0, gpt3Count: 0 },
   });
 };
+
