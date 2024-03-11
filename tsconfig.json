@@ -30,7 +30,7 @@
     ".next/types/**/*.ts",
     "app/(dashboard)/(routes)/translation/page.tsx.bak",
     "app/api/image/route.ts.bak",
-    "app/api/resetApiCounts/resetApiCounts.ts" // Add the missing file here
+    "app/api/cron/resetApiCounts.ts" // Add the missing file here
   ],
   "exclude": ["node_modules"]
 }
