@@ -110,7 +110,7 @@ export  const Sidebar =  ({
                   <div>
                     {(index === 1) && <Badge variant="premium" className="text-xs italic">Bravo</Badge>}
                     {(index === 2) && <Badge variant="premium" className="text-xs italic">Pro</Badge>}
-                    {(index === 3) && <Badge variant="hot" className="text-xs italic">Hot!</Badge>}
+                    {(index === 3) && <Badge variant="hot" className="text-xs italic">New!</Badge>}
                     {(index === 4) && <Badge variant="premium" className="text-xs italic">Pro</Badge>}
                     {/* {(index === 5) && <Badge variant="premium" className="text-xs">Pro</Badge>} */}
                   </div>

@@ -13,6 +13,7 @@ function ImagePage() {
   const [prompt, setPrompt] = useState('');
   const [image, setImage] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [selectedModel, setSelectedModel] = useState('sdxl');
 
   const router = useRouter();
 
@@ -27,6 +28,7 @@ function ImagePage() {
     try {
       const response = await axios.post('/api/predictions', {
         prompt,
+        selectedModel,
       });
       setImage(response.data[0]);
       router.refresh();
@@ -42,12 +44,15 @@ function ImagePage() {
       <div className=" w-full max-w-3xl lg:max-w-5xl p-4 lg:p-24 flex flex-col">
         <Heading
           title="文生成图"
-          description="按提示生成图片"
+          description="按提示生成图像"
           icon={ImageIcon}
           iconColor="text-pink-700"
           bgColor="bg-pink-700/10"
           showBadge={1}
-          badgeText='S.Diffusion 2'
+          badgeText=" 新模型！"
+          showImgModel={1}
+          selectedModel={selectedModel}
+          setSelectedModel={setSelectedModel}
         />
         <div className="px-4 lg:px-8 mt-4 w-full">
           <form className='rounded-lg' onSubmit={handleSubmit}>

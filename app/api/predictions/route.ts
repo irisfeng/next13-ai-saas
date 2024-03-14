@@ -3,7 +3,8 @@ import { auth } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
 
 import { incrementApiLimit, checkApiLimit } from "@/lib/api-limit";
-import { checkSubscription } from "@/lib/subscription";
+// import { checkSubscription } from "@/lib/subscription";
+import { modelParameters } from "@/constants";
 
 const replicate = new Replicate({
     auth: process.env.REPLICATE_API_TOKEN!,
@@ -15,7 +16,7 @@ export async function POST(
     try {
         const { userId } = auth();
         const body = await req.json();
-        const { prompt } = body;
+        const { prompt, selectedModel } = body;
 
         if (!userId) {
             return new NextResponse("Unauthorized", { status: 401 });
@@ -32,8 +33,15 @@ export async function POST(
             return new NextResponse("Free trial has expired. Please upgrade to pro.", { status: 403 });
         }
 
+
+
+        const modelVersion: string = modelParameters[selectedModel];
+        if (!modelVersion) {
+            return new NextResponse("Invalid model", { status: 400 });
+        }
+
         const response = await replicate.run(
-            "stability-ai/stable-diffusion:ac732df83cea7fff18b8472768c88ad041fa750ff7682a21affe81863cbe77e4",
+            modelVersion,
             {
                 input: {
                     prompt,

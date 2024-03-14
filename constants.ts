@@ -3,6 +3,17 @@ import { BookMarked, ImageIcon, MessageSquare, ImagePlusIcon, Pen } from "lucide
 export const MAX_FREE_COUNTS = 10;
 export const GPT3_FREE_COUNTS = 20;
 
+export const imageModels = {
+  sdxl: 'sdxl',
+  sd2: 'sd2',
+}
+
+export const modelParameters = {
+  sd2: "stability-ai/stable-diffusion:ac732df83cea7fff18b8472768c88ad041fa750ff7682a21affe81863cbe77e4",
+  sdxl: "stability-ai/sdxl:39ed52f2a78e934b3ba6e2a89f5b1c712de7dfea535525255b1aa35c5565e08b",
+  // 添加其他模型和参数...
+};
+
 export const tools = [
   {
     label: '聊天对话',
