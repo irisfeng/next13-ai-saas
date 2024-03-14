@@ -39,6 +39,7 @@
 //     </>
 //   );
 // };
+
 import { Icon } from "lucide-react";
 import { Badge } from "@/components/ui/badge"; // Import the Badge component
 import { cn } from "@/lib/utils";
@@ -55,8 +56,8 @@ interface HeadingProps {
   showBadge?: number; // Property to determine if the badge is shown (1) or not (0), default is 0
   imageModel?: keyof typeof imageModels; // Add model property
   showImgModel?: number; // Add showModel property
-  selectedModel: string; // Add selectedModel property
-  setSelectedModel: (model: string) => void; // Add setSelectedModel property
+  selectedModel?: string; // Add selectedModel property
+  setSelectedModel?: (model: string) => void; // Add setSelectedModel property
 }
 
 export const Heading = ({
@@ -89,18 +90,20 @@ export const Heading = ({
             {showImgModel === 1  && (
               <div className="ml-3">
                 {/* <label htmlFor="model-select" className="text-sm text-muted-foreground">支持模型：</label> */}
-                <select 
-                  id="model-select" 
-                  value={selectedModel} 
-                  className="text-sm text-muted-foreground"
-                  onChange={(e) => setSelectedModel(e.target.value)}
-                >
+                {selectedModel && setSelectedModel && (
+                  <select 
+                    id="model-select" 
+                    value={selectedModel} 
+                    className="text-sm text-muted-foreground"
+                    onChange={(e) => setSelectedModel(e.target.value)}
+                  >
                     {Object.keys(imageModels).map((model) => (
                       <option value={model} key={model}>
                         {model}
                       </option>
                     ))}
-                </select>
+                  </select>
+                )}
               </div>
             )}
           </div>
