@@ -54,7 +54,7 @@ function ImagePage() {
   return (
     <section className="w-full h-full flex items-center justify-center">
       <div className=" w-full max-w-3xl lg:max-w-5xl p-4 lg:p-24 flex flex-col">
-        <div className="flex justify-between items-center space-x-4">
+        <div className="flex justify-between items-center">
           <Heading
             title="文生图"
             description="文本生成图像"
@@ -62,20 +62,22 @@ function ImagePage() {
             iconColor="text-pink-700"
             bgColor="bg-pink-700/10"
             showBadge={1}
-            badgeText=" 新 "
+            badgeText="新!"
           />
-          <Select>
-            <SelectTrigger className="w-[180px]">
-              <SelectValue placeholder={selectedModel.modelName} />
-            </SelectTrigger>
-            <SelectContent>
-              {models.map((model) => (
-                  <SelectItem value={model.modelName} key={model.modelName} onClick={() => setSelectedModel(model)} >
-                    {model.modelName}
-                  </SelectItem>
-                ))}
-            </SelectContent>
-          </Select>
+          <div className="w-40">
+            <Select>
+              <SelectTrigger className="w-full text-xs">
+                <SelectValue placeholder={selectedModel.modelName} />
+              </SelectTrigger>
+              <SelectContent>
+                {models.map((model) => (
+                    <SelectItem value={model.modelName} key={model.modelName} onClick={() => setSelectedModel(model)} className="text-xs">
+                      {model.modelName}
+                    </SelectItem>
+                  ))}
+              </SelectContent>
+            </Select>
+          </div>
         </div>
         <div className="px-4 lg:px-8 mt-4 w-full">
           <form className='rounded-lg' onSubmit={handleSubmit}>
