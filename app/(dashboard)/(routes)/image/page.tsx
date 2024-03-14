@@ -8,12 +8,22 @@ import { Button } from "@/components/ui/button";
 import { useRouter } from 'next/navigation';
 import AutoResizeInput from '@/components/autoresize-input';
 
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+
+import { models } from "@/constants";
+
 
 function ImagePage() {
   const [prompt, setPrompt] = useState('');
   const [image, setImage] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [selectedModel, setSelectedModel] = useState('sdxl');
+  const [selectedModel, setSelectedModel] = useState(models[0]);
 
   const router = useRouter();
 
@@ -28,7 +38,9 @@ function ImagePage() {
     try {
       const response = await axios.post('/api/predictions', {
         prompt,
-        selectedModel,
+        model: selectedModel.modelName,
+        params: selectedModel.modelParameters,
+       
       });
       setImage(response.data[0]);
       router.refresh();
@@ -42,18 +54,29 @@ function ImagePage() {
   return (
     <section className="w-full h-full flex items-center justify-center">
       <div className=" w-full max-w-3xl lg:max-w-5xl p-4 lg:p-24 flex flex-col">
-        <Heading
-          title="文生成图"
-          description="按提示生成图像"
-          icon={ImageIcon}
-          iconColor="text-pink-700"
-          bgColor="bg-pink-700/10"
-          showBadge={1}
-          badgeText=" 新模型！"
-          showImgModel={1}
-          selectedModel={selectedModel}
-          setSelectedModel={setSelectedModel}
-        />
+        <div className="flex justify-between items-center space-x-4">
+          <Heading
+            title="文生成图"
+            description="按提示生成图像"
+            icon={ImageIcon}
+            iconColor="text-pink-700"
+            bgColor="bg-pink-700/10"
+            showBadge={1}
+            badgeText=" 新模型 "
+          />
+          <Select>
+            <SelectTrigger className="w-[180px]">
+              <SelectValue placeholder={selectedModel.modelName} />
+            </SelectTrigger>
+            <SelectContent>
+              {models.map((model) => (
+                  <SelectItem value={model.modelName} key={model.modelName} onClick={() => setSelectedModel(model)} >
+                    {model.modelName}
+                  </SelectItem>
+                ))}
+            </SelectContent>
+          </Select>
+        </div>
         <div className="px-4 lg:px-8 mt-4 w-full">
           <form className='rounded-lg' onSubmit={handleSubmit}>
             <div className="flex items-center justify-center mt-4 w-full lg:max-w-4xl">

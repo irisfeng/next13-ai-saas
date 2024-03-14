@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 
 import { incrementApiLimit, checkApiLimit } from "@/lib/api-limit";
 // import { checkSubscription } from "@/lib/subscription";
-import { modelParameters } from "@/constants";
+// import { modelParameters } from "@/constants";
 
 const replicate = new Replicate({
     auth: process.env.REPLICATE_API_TOKEN!,
@@ -16,7 +16,7 @@ export async function POST(
     try {
         const { userId } = auth();
         const body = await req.json();
-        const { prompt, selectedModel } = body;
+        const { prompt, model, params  } = body;
 
         if (!userId) {
             return new NextResponse("Unauthorized", { status: 401 });
@@ -34,20 +34,16 @@ export async function POST(
         }
 
 
-
-        const modelVersion: string = modelParameters[selectedModel];
-        if (!modelVersion) {
-            return new NextResponse("Invalid model", { status: 400 });
-        }
-
         const response = await replicate.run(
-            modelVersion,
+            `stability-ai/${model}:${params}`,
+            // "stability-ai/sdxl:39ed52f2a78e934b3ba6e2a89f5b1c712de7dfea535525255b1aa35c5565e08b",
             {
                 input: {
                     prompt,
                 }
             }
         );
+        console.log("选用的模型:", `stability-ai/${model}:${params}`);
         console.log("Response:", response);
 
         await incrementApiLimit();
