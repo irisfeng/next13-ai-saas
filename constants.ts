@@ -9,7 +9,7 @@ export const models = [
     modelParameters: '39ed52f2a78e934b3ba6e2a89f5b1c712de7dfea535525255b1aa35c5565e08b'
   },
   {
-    modelName: "stable-diffusion",
+    modelName: "sd2",    //stable-diffusion
     modelParameters: 'ac732df83cea7fff18b8472768c88ad041fa750ff7682a21affe81863cbe77e4'
   },
 ];

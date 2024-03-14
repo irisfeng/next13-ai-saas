@@ -64,7 +64,7 @@ function ImagePage() {
             showBadge={1}
             badgeText="新!"
           />
-          <div className="w-40">
+          <div className="w-20">
             <Select>
               <SelectTrigger className="w-full text-xs">
                 <SelectValue placeholder={selectedModel.modelName} />
