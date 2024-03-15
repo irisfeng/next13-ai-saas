@@ -6,7 +6,7 @@ import { incrementApiLimit, checkApiLimit } from "@/lib/api-limit";
 // import { checkSubscription } from "@/lib/subscription";
 // import { modelParameters } from "@/constants";
 
-export const runtime = 'edge'
+// export const runtime = 'edge'
 export const dynamic = 'auto'
 export const maxDuration = 60
 
