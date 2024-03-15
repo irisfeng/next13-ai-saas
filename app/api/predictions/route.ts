@@ -7,7 +7,11 @@ import { incrementApiLimit, checkApiLimit } from "@/lib/api-limit";
 // import { modelParameters } from "@/constants";
 
 export const config = {
-    maxDuration: 180, // 3 minutes.
+    api: {
+        bodyParser: false,
+        externalResolver: true,
+        maxDuration: 180,
+    },
 };
 
 const replicate = new Replicate({
