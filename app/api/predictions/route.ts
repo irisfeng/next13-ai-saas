@@ -6,13 +6,10 @@ import { incrementApiLimit, checkApiLimit } from "@/lib/api-limit";
 // import { checkSubscription } from "@/lib/subscription";
 // import { modelParameters } from "@/constants";
 
-export const config = {
-    api: {
-        bodyParser: false,
-        externalResolver: true,
-        maxDuration: 180,
-    },
-};
+export const dynamic = 'auto'
+export const maxDuration = 180
+
+
 
 const replicate = new Replicate({
     auth: process.env.REPLICATE_API_TOKEN!,
