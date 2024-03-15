@@ -19,7 +19,7 @@ import { Request, Response } from 'express';
 import { resetApiLimit } from '@/lib/api-limit';
 
 export const config = {
-    runtime: 'edge',
+    runtime: 'serverless',
 }
 
 export default async function handler(req: Request, res: Response) {

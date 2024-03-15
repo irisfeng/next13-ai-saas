@@ -6,6 +6,10 @@ import { incrementApiLimit, checkApiLimit } from "@/lib/api-limit";
 // import { checkSubscription } from "@/lib/subscription";
 // import { modelParameters } from "@/constants";
 
+export const config = {
+    maxDuration: 180, // 3 minutes.
+};
+
 const replicate = new Replicate({
     auth: process.env.REPLICATE_API_TOKEN!,
 });
@@ -16,7 +20,7 @@ export async function POST(
     try {
         const { userId } = auth();
         const body = await req.json();
-        const { prompt, model, params  } = body;
+        const { prompt, model, params } = body;
 
         if (!userId) {
             return new NextResponse("Unauthorized", { status: 401 });
@@ -37,7 +41,7 @@ export async function POST(
         if (model === "sd2") {
             modelFullName = "stable-diffusion";
         } else modelFullName = model;
-            
+
 
 
         const response = await replicate.run(
