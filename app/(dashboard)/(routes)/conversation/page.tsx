@@ -37,12 +37,12 @@ export default function ConversationPage() {
       <div className=" w-full max-w-3xl lg:max-w-5xl p-4 lg:p-24 flex flex-col">
         <Heading 
           title="聊天对话"
-          description="稳定快速流畅的 "
+          description="快速稳定 "
           icon={MessageSquare}
           iconColor="text-violet-500"
           bgColor="bg-violet-500/10"
           showBadge={1}
-          badgeText='GPT3.5加持'
+          badgeText='GPT3.5驱动'
         />
         
         <div className='flex flex-col gap-y-4 bg-white rounded-lg p-4 w-full lg:max-w-5xl overflow-auto'>

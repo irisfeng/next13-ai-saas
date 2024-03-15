@@ -8,7 +8,7 @@ import { incrementApiLimit, checkApiLimit } from "@/lib/api-limit";
 
 // export const runtime = 'edge'
 export const dynamic = 'auto'
-export const maxDuration = 60
+export const maxDuration = 120
 
 
 const replicate = new Replicate({

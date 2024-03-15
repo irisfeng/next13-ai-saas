@@ -35,8 +35,8 @@ const writingAssistant = () => {
         <Heading 
           title="总结能手"
           showBadge={1}
-          badgeText='Hot'
-          description="擅长中英文章总结，试试便知"
+          badgeText='GPT4驱动'
+          description="擅长中英文章归纳总结 "
           icon={Pen}
           iconColor="text-orange-700"
           bgColor="bg-orange-700/10"

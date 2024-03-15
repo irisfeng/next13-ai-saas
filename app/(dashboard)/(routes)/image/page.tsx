@@ -56,13 +56,13 @@ function ImagePage() {
       <div className=" w-full max-w-3xl lg:max-w-5xl p-4 lg:p-24 flex flex-col">
         <div className="flex justify-between items-center">
           <Heading
-            title="文生图"
-            description="文本生成图像"
+            title="文生成图"
+            description="按提示生成图像 "
             icon={ImageIcon}
             iconColor="text-pink-700"
             bgColor="bg-pink-700/10"
             showBadge={1}
-            badgeText="新!"
+            badgeText="SDXL驱动"
           />
           <div className="w-20">
             <Select>

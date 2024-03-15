@@ -37,11 +37,13 @@ const someAssistant = () => {
     <section className="w-full h-full flex items-center justify-center">
       <div className=" w-full max-w-3xl lg:max-w-5xl p-4 lg:p-24 flex flex-col">
         <Heading 
-          title="简洁互译"
-          description="中英翻译信达雅"
+          title="中英互译"
+          description="追求信达雅"
           icon={BookMarked}
           iconColor="text-green-700"
           bgColor="bg-green-700/10"
+          showBadge={1}
+          badgeText="GPT4驱动"
         />
 
         <div className='flex flex-col gap-y-4 bg-white rounded-lg p-4 w-full lg:max-w-5xl overflow-auto'>
