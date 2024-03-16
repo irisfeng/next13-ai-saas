@@ -23,7 +23,7 @@ export const config = {
 }
 
 export default async function handler(req: Request, res: Response) {
-    if (req.method === 'POST') {
+    if (req.method === 'GET') {
         await resetApiLimit();
         res.status(200).json({ message: 'ok' });
     } else {
