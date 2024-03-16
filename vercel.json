@@ -1,7 +1,7 @@
 {
     "crons": [
       {
-        "path": "/app/api/reset/route.ts",
+        "path": "/app/api/reset/reset.ts",
         "schedule": "0 0 * * *"
       }
     ]
