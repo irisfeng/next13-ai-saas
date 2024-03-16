@@ -1,4 +1,4 @@
-// /api/reset.ts
+// /api/reset/route.ts
 import { Request, Response } from 'express';
 import { resetApiLimit } from '@/lib/api-limit';
 
