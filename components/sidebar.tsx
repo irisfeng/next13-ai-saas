@@ -40,23 +40,23 @@ const routes = [
     href: '/translation',
   },
   {
-    label: '文生成图',
-    icon: ImageIcon,
-    color: "text-pink-700",
-    href: '/image',
-  },
-  {
-    label: '总结能手',
+    label: '提示助手',
     icon: Pen,
     color: "text-orange-700",
     href: '/writing',
   },
   {
-    label: '人像修复',
-    icon: ImagePlusIcon,
-    color: "text-blue-700",
-    href: '/restorepics',
+    label: '文生成图',
+    icon: ImageIcon,
+    color: "text-pink-700",
+    href: '/image',
   },
+  // {
+  //   label: '人像修复',
+  //   icon: ImagePlusIcon,
+  //   color: "text-blue-700",
+  //   href: '/restorepics',
+  // },
   {
     label: '用户设置',
     icon: Settings,
@@ -111,7 +111,7 @@ export  const Sidebar =  ({
                     {(index === 1) && <Badge variant="premium" className="text-xs italic">Bravo</Badge>}
                     {(index === 2) && <Badge variant="premium" className="text-xs italic">Pro</Badge>}
                     {(index === 3) && <Badge variant="hot" className="text-xs italic">New!</Badge>}
-                    {(index === 4) && <Badge variant="premium" className="text-xs italic">Pro</Badge>}
+                    {(index === 4) && <Badge variant="hot" className="text-xs italic">New!</Badge>}
                     {/* {(index === 5) && <Badge variant="premium" className="text-xs">Pro</Badge>} */}
                   </div>
                 </div>

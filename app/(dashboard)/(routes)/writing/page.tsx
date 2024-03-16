@@ -33,10 +33,10 @@ const writingAssistant = () => {
     <section className="w-full h-full flex items-center justify-center">
       <div className=" w-full max-w-3xl lg:max-w-5xl p-4 lg:p-24 flex flex-col">
         <Heading 
-          title="总结能手"
+          title="提示助手"
           showBadge={1}
           badgeText='GPT4驱动'
-          description="擅长中英文章归纳总结 "
+          description="文生图提示语生成 "
           icon={Pen}
           iconColor="text-orange-700"
           bgColor="bg-orange-700/10"
@@ -63,7 +63,7 @@ const writingAssistant = () => {
                     value={input}
                     disabled={status !== 'awaiting_message'}
                     onChange={handleInputChange}
-                    placeholder="试试问我能帮您干些啥"
+                    placeholder="输入中文，复制生成的英文提示"
                   />
                   <Button variant={'send'} type="submit" size="icon">
                     <Send />

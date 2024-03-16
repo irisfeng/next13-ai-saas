@@ -25,7 +25,7 @@ export async function POST(req: Request) {
   try {
     const { userId } = auth();
 
-    const assistantId = process.env.ASSISTANT_ID2 as string;
+    const assistantId = process.env.ASSISTANT_ID3 as string;
 
     if (!assistantId) {
       throw new Error("Assistant ID not found in environment variables");
