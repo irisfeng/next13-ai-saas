@@ -24,13 +24,13 @@ export const tools = [
     color: "text-violet-500",
     bgColor: "bg-violet-500/10",
   },
-  {
-    label: '中英互译',
-    icon: BookMarked,
-    color: "text-green-700",
-    bgColor: "bg-green-700/10",
-    href: '/translation',
-  },
+  // {
+  //   label: '中英互译',
+  //   icon: BookMarked,
+  //   color: "text-green-700",
+  //   bgColor: "bg-green-700/10",
+  //   href: '/translation',
+  // },
   {
     label: '提示助手',
     icon: Pen,

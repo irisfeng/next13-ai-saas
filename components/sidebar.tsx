@@ -10,7 +10,8 @@ import {
   MessageSquare, 
   Settings, 
   Pen,
-  ImagePlusIcon
+  ImagePlusIcon,
+  Heading1
 } from "lucide-react";
 
 import { usePathname } from "next/navigation";
@@ -33,12 +34,12 @@ const routes = [
     href: '/conversation',
     color: "text-violet-500",
   },
-  {
-    label: '中英互译',
-    icon: BookMarked,
-    color: "text-green-700",
-    href: '/translation',
-  },
+  // {
+  //   label: '中英互译',
+  //   icon: BookMarked,
+  //   color: "text-green-700",
+  //   href: '/translation',
+  // },
   {
     label: '提示助手',
     icon: Pen,
@@ -86,9 +87,10 @@ export  const Sidebar =  ({
           <div className="relative h-8 w-8 mr-4">
             <Image fill alt="Logo" src="/logo.png" />
           </div>
-          <h1 className={cn("text-2xl font-bold", poppins.className)}>
+          <h1 className={cn("text-2xl font-normal", poppins.className)}>
             PantheonAI
           </h1>
+          <Badge variant="secondary" className="text-xs ml-2">Beta</Badge>
         </Link>
         <div className="space-y-1">
           {routes.map((route, index) => (
@@ -111,7 +113,7 @@ export  const Sidebar =  ({
                     {(index === 1) && <Badge variant="premium" className="text-xs italic">Bravo</Badge>}
                     {(index === 2) && <Badge variant="premium" className="text-xs italic">Pro</Badge>}
                     {(index === 3) && <Badge variant="hot" className="text-xs italic">New!</Badge>}
-                    {(index === 4) && <Badge variant="hot" className="text-xs italic">New!</Badge>}
+                    {/* {(index === 4) && <Badge variant="hot" className="text-xs italic">New!</Badge>} */}
                     {/* {(index === 5) && <Badge variant="premium" className="text-xs">Pro</Badge>} */}
                   </div>
                 </div>
