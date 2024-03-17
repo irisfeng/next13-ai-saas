@@ -16,14 +16,14 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-import { models } from "@/constants";
+import { imageModels } from "@/constants";
 
 
 function ImagePage() {
   const [prompt, setPrompt] = useState('');
   const [image, setImage] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [selectedModel, setSelectedModel] = useState(models[0]);
+  const [selectedModel, setSelectedModel] = useState(imageModels[0]);
 
   const router = useRouter();
 
@@ -70,7 +70,7 @@ function ImagePage() {
                 <SelectValue placeholder={selectedModel.modelName} />
               </SelectTrigger>
               <SelectContent>
-                {models.map((model) => (
+                {imageModels.map((model) => (
                     <SelectItem value={model.modelName} key={model.modelName} onClick={() => setSelectedModel(model)} className="text-xs">
                       {model.modelName}
                     </SelectItem>
@@ -92,7 +92,7 @@ function ImagePage() {
               <AutoResizeInput 
                 value={prompt} 
                 onChange={handlePromptChange} 
-                placeholder='请输入提示文本[暂只支持英文]...'
+                placeholder='请根据提示助手或直接输入英文提示...'
                 className='w-full resize-none overflow-hidden p-2 border-2 mr-4 border-gray-300 rounded-md' 
               /> 
               

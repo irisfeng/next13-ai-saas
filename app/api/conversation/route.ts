@@ -4,6 +4,10 @@ import OpenAI from "openai";
 import { OpenAIStream, StreamingTextResponse } from 'ai';
 import { incrementGpt3ApiLimit, checkGpt3ApiLimit } from "@/lib/api-limit";
 
+// export const runtime = 'edge'
+export const dynamic = 'auto'
+export const maxDuration = 30
+
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY || '',
 });

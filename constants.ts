@@ -1,9 +1,9 @@
 import { BookMarked, ImageIcon, MessageSquare, ImagePlusIcon, Pen } from "lucide-react";
 
 export const MAX_FREE_COUNTS = 10;
-export const GPT3_FREE_COUNTS = 20;
+export const GPT3_FREE_COUNTS = 30;
 
-export const models = [
+export const imageModels = [
   {
     modelName: "sdxl",
     modelParameters: '39ed52f2a78e934b3ba6e2a89f5b1c712de7dfea535525255b1aa35c5565e08b'
@@ -13,6 +13,18 @@ export const models = [
     modelParameters: 'ac732df83cea7fff18b8472768c88ad041fa750ff7682a21affe81863cbe77e4'
   },
 ];
+
+export const chatModels = [
+  {
+    modelName: "gpt3.5",
+    modelParameters: 'gpt-3.5-turbo-0125'
+  },
+  {
+    modelName: "gpt4",
+    modelParameters: 'gpt-4-0125-preview'
+  },
+]
+
   
 
 
