@@ -92,7 +92,7 @@ function ImagePage() {
               <AutoResizeInput 
                 value={prompt} 
                 onChange={handlePromptChange} 
-                placeholder='请根据提示助手或直接输入英文提示...'
+                placeholder='根据提示助手/直接输入英文...'
                 className='w-full resize-none overflow-hidden p-2 border-2 mr-4 border-gray-300 rounded-md' 
               /> 
               
