@@ -43,7 +43,7 @@ export const FreeCounter = ({
         <CardContent className="py-6">
           <div className="text-center text-sm text-white mb-4 space-y-2">
             <DateTime />
-            <p><strong> 套餐详情  </strong> <Badge variant="premium" className="text-xs italic" > DailyReset </Badge></p>
+             <Badge variant="premium" className="text-xs italic" > 套餐详情 </Badge>
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
               <p>{gpt3ApiLimitCount}/{GPT3_FREE_COUNTS}</p> <p>GPT3.5</p>
             </div>
