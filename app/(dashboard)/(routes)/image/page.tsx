@@ -7,6 +7,7 @@ import { Heading } from '@/components/heading';
 import { Button } from "@/components/ui/button";
 import { useRouter } from 'next/navigation';
 import AutoResizeInput from '@/components/autoresize-input';
+import { BubbleChat } from 'flowise-embed-react';
 
 import {
   Select,
@@ -105,6 +106,10 @@ function ImagePage() {
         
         {image && <img src={image} alt="生成的图片" className="mt-8" />}
       </div>
+      <BubbleChat 
+          chatflowid="4f98a139-4f56-464d-8b7b-1516695f7ae3" 
+          apiHost="https://flowiseai-clone.onrender.com" 
+        />
     </section>
   );
 }

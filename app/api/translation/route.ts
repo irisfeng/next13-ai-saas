@@ -8,7 +8,7 @@ import { checkSubscription } from "@/lib/subscription";
 import { incrementApiLimit, checkApiLimit } from "@/lib/api-limit";
 
 export const dynamic = 'auto'
-export const maxDuration = 30
+// export const maxDuration = 30
 
 // Create an OpenAI API client (that's edge friendly!)
 const openai = new OpenAI({

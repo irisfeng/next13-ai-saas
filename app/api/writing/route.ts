@@ -11,7 +11,7 @@ import { incrementApiLimit, checkApiLimit } from "@/lib/api-limit";
 // Create an OpenAI API client (that's edge friendly!)
 
 export const dynamic = 'auto'
-export const maxDuration = 30
+// export const maxDuration = 30
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY || '',

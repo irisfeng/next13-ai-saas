@@ -6,7 +6,7 @@ import { incrementGpt3ApiLimit, checkGpt3ApiLimit } from "@/lib/api-limit";
 
 // export const runtime = 'edge'
 export const dynamic = 'auto'
-export const maxDuration = 30
+// export const maxDuration = 30
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY || '',
@@ -36,7 +36,7 @@ export async function POST(req: Request) {
     }
 
     const response = await openai.chat.completions.create({
-      model: "gpt-3.5-turbo-0125", // "gpt-4-0125-preview"
+      model: "gpt-4o", // "gpt-4-0125-preview"
       stream: true,
       messages: messages,
     });
