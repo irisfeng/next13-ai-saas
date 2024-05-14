@@ -1,6 +1,6 @@
 import { BookMarked, ImageIcon, MessageSquare, ImagePlusIcon, Pen } from "lucide-react";
 
-export const MAX_FREE_COUNTS = 10;
+export const MAX_FREE_COUNTS = 30;
 export const GPT3_FREE_COUNTS = 30;
 
 export const imageModels = [
@@ -21,7 +21,7 @@ export const chatModels = [
   },
   {
     modelName: "gpt4",
-    modelParameters: 'gpt-4-0125-preview'
+    modelParameters: 'gpt-4o'
   },
 ]
 

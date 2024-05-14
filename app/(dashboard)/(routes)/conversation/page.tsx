@@ -42,7 +42,7 @@ export default function ConversationPage() {
           iconColor="text-violet-500"
           bgColor="bg-violet-500/10"
           showBadge={1}
-          badgeText='GPT3.5驱动'
+          badgeText='GPT-4o驱动'
         />
         
         <div className='flex flex-col gap-y-4 bg-white rounded-lg p-4 w-full lg:max-w-5xl overflow-auto'>

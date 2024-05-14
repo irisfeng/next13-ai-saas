@@ -2,7 +2,8 @@ import { auth } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
 import OpenAI from "openai";
 import { OpenAIStream, StreamingTextResponse } from 'ai';
-import { incrementGpt3ApiLimit, checkGpt3ApiLimit } from "@/lib/api-limit";
+// import { incrementGpt3ApiLimit, checkGpt3ApiLimit } from "@/lib/api-limit";
+import { incrementApiLimit, checkApiLimit } from "@/lib/api-limit";
 
 // export const runtime = 'edge'
 export const dynamic = 'auto'
@@ -29,7 +30,7 @@ export async function POST(req: Request) {
       return new NextResponse("Messages are required", { status: 400 });
     }
 
-    const freeTrial = await checkGpt3ApiLimit();
+    const freeTrial = await checkApiLimit();
 
     if (!freeTrial) {
       return new NextResponse("Free trial has expired. Please upgrade to pro.", { status: 403 });
@@ -41,7 +42,7 @@ export async function POST(req: Request) {
       messages: messages,
     });
 
-    await incrementGpt3ApiLimit();
+    await incrementApiLimit();
 
     const stream = OpenAIStream(response);
     return new StreamingTextResponse(stream);

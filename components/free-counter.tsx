@@ -44,11 +44,11 @@ export const FreeCounter = ({
           <div className="text-center text-sm text-white mb-4 space-y-2">
             <DateTime />
              <Badge variant="premium" className="text-xs italic" > 套餐详情 </Badge>
-            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+            {/* <div style={{ display: 'flex', justifyContent: 'space-between' }}>
               <p>{gpt3ApiLimitCount}/{GPT3_FREE_COUNTS}</p> <p>GPT3.5</p>
-            </div>
+            </div> */}
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-              <p>{apiLimitCount}/{MAX_FREE_COUNTS}</p> <p>GPT4/Replicate</p>
+              <p>{apiLimitCount}/{MAX_FREE_COUNTS}</p> <p> GPT4o / Replicate </p>
             </div>
             {/* <Progress className="h-3" value={(apiLimitCount / MAX_FREE_COUNTS) * 100} /> */}
           </div>

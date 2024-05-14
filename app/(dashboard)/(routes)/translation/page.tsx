@@ -43,7 +43,7 @@ const someAssistant = () => {
           iconColor="text-green-700"
           bgColor="bg-green-700/10"
           showBadge={1}
-          badgeText="GPT4驱动"
+          badgeText="GPT4o驱动"
         />
 
         <div className='flex flex-col gap-y-4 bg-white rounded-lg p-4 w-full lg:max-w-5xl overflow-auto'>
